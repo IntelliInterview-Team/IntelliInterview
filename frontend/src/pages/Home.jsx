@@ -1,29 +1,87 @@
-import React,{useState} from "react";
-import { useNavigate } from "react-router-dom";
-const  Home = () => {
-    const [selectedLevel, setSelectedLevel] = useState('');
-    const navigate = useNavigate();
-    console.log(selectedLevel);
-    return (
-    <div>
-        <h1>IntelliInterview</h1>
-        <p>Welcome to IntelliInterview, your AI-powered interview preparation platform.</p>
-        <div className="cards-container">
-            <div className={selectedLevel === 'Beginner' ? 'card selected' : 'card'} onClick={() => setSelectedLevel('Beginner')}>
-                <h2>Beginner</h2>
-                <p>Basic level Questions</p>
-            </div> 
-            <div className={selectedLevel === 'Intermediate' ? 'card selected' : 'card'} onClick={() => setSelectedLevel('Intermediate')}>
-                <h2>Intermediate</h2>
-                <p>Moderate Difficulty</p>
-            </div>  
-            <div className={selectedLevel === 'Advanced' ? 'card selected' : 'card'} onClick={() => setSelectedLevel('Advanced')}>
-                <h2>Advanced</h2>
-                <p>Industry-Level Simulation</p>
-            </div>       
+import React from "react"
+import { useNavigate } from "react-router-dom"
+import { startSession } from "../services/api"
+
+
+export default function Home(){
+
+    const navigate = useNavigate()
+
+
+    const handleStart = async (level) => {
+
+        const data = await startSession(level)
+
+        localStorage.setItem("session_id", data.session_id)
+
+        navigate("/aptitude")
+    }
+
+
+    return(
+
+        <div style={{textAlign:"center"}}>
+
+            <h1>Welcome to IntelliInterview</h1>
+
+            <p>
+                Practice aptitude interview questions with timer and evaluation
+            </p>
+
+
+            <div style={{
+                display:"flex",
+                justifyContent:"center",
+                gap:"30px",
+                marginTop:"40px"
+            }}>
+
+
+                <div style={cardStyle}>
+
+                    <h2>Beginner</h2>
+
+                    <button onClick={()=>handleStart("beginner")}>
+                        Start
+                    </button>
+
+                </div>
+
+
+                <div style={cardStyle}>
+
+                    <h2>Intermediate</h2>
+
+                    <button onClick={()=>handleStart("intermediate")}>
+                        Start
+                    </button>
+
+                </div>
+
+
+                <div style={cardStyle}>
+
+                    <h2>Advanced</h2>
+
+                    <button onClick={()=>handleStart("advanced")}>
+                        Start
+                    </button>
+
+                </div>
+
+
+            </div>
+
         </div>
-        <button disabled={!selectedLevel} onClick={()=>navigate('/Aptitude',{state:{level:selectedLevel}})}>Start Interview</button>
-    </div>
-    );
+
+    )
 }
-export default Home;
+
+
+
+const cardStyle = {
+
+    border:"1px solid black",
+    padding:"20px",
+    width:"200px"
+}
