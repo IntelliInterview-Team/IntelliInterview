@@ -13,12 +13,12 @@ function Home(){
         localStorage.setItem("session_id", data.session_id)
 
         // Navigate to first module
-        navigate("/aptitude")
+       navigate(`/aptitude/${data.session_id}`)
     }
 
     return(
 
-        <div style={{textAlign:"center"}}>
+        <div className="home-container">
 
             <h1>IntelliInterview</h1>
 
@@ -27,34 +27,29 @@ function Home(){
                 Start your interview by selecting a difficulty level.
             </p>
 
-            <div style={{
-                display:"flex",
-                justifyContent:"center",
-                gap:"30px",
-                marginTop:"40px"
-            }}>
+            <div className="cards-wrapper">
 
-                <div style={cardStyle}>
+                <div className="home-card">
                     <h2>Beginner</h2>
                     <p>Service-based company level</p>
                     <button onClick={()=>handleStart("beginner")}>
-                        Start Interview
+                        Start
                     </button>
                 </div>
 
-                <div style={cardStyle}>
+                <div className="home-card">
                     <h2>Intermediate</h2>
                     <p>Mid-level company difficulty</p>
                     <button onClick={()=>handleStart("intermediate")}>
-                        Start Interview
+                        Start
                     </button>
                 </div>
 
-                <div style={cardStyle}>
+                <div className="home-card">
                     <h2>Advanced</h2>
                     <p>Product-based company level</p>
                     <button onClick={()=>handleStart("advanced")}>
-                        Start Interview
+                        Start
                     </button>
                 </div>
 
@@ -65,10 +60,4 @@ function Home(){
     )
 }
 
-const cardStyle = {
-    border:"1px solid black",
-    padding:"20px",
-    width:"220px",
-    borderRadius:"10px"
-}
-export default Home 
+export default Home

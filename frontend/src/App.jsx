@@ -1,14 +1,17 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
-import Home from "./pages/Home"
-import Aptitude from "./pages/Aptitude"
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import "./App.css";
+import Home from "./pages/Home";
+import Aptitude from "./pages/Aptitude";
+import Verbal from "./pages/Verbal"
 
-export default function App(){
+export default function App() {
   return (
-    <Router>
+    <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/aptitude" element={<Aptitude />} />
+        <Route path="/aptitude/:sessionId" element={<Aptitude />} />
+        <Route path="/verbal" element={<Verbal />} />
       </Routes>
-    </Router>
-  )
+    </BrowserRouter>
+  );
 }
