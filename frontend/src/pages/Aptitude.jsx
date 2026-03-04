@@ -1,146 +1,174 @@
-import React, { useEffect, useState } from "react"
-import { useNavigate, useParams } from "react-router-dom"
+import React, { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 
 import {
-    getSessionQuestions,
-    saveAnswer,
-    completeSession
-} from "../services/api"
+  getSessionQuestions,
+  saveAnswer,
+  completeSession
+} from "../services/api";
 
-export default function Aptitude(){
+export default function Aptitude() {
 
-    const navigate = useNavigate()
+  const navigate = useNavigate();
+  const { sessionId } = useParams();
 
-    // ✅ Get sessionId from URL
-    const { sessionId } = useParams()
+  const [questions, setQuestions] = useState([]);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [answers, setAnswers] = useState({});
+  const [timeLeft, setTimeLeft] = useState(1200);
+  const [loading, setLoading] = useState(true);
 
-    const [questions, setQuestions] = useState([])
-    const [currentIndex, setCurrentIndex] = useState(0)
-    const [answers, setAnswers] = useState({})
-    const [timeLeft, setTimeLeft] = useState(1200)
-    const [loading, setLoading] = useState(true)
+  // Load questions
+  useEffect(() => {
+    loadQuestions();
+  }, []);
 
-    useEffect(()=>{
-        loadQuestions()
-    },[])
+  const loadQuestions = async () => {
+    const data = await getSessionQuestions(sessionId);
+    setQuestions(data.questions);
+    setTimeLeft(data.duration);
+    setLoading(false);
+  };
 
-    const loadQuestions = async ()=>{
-        const data = await getSessionQuestions(sessionId)
-        setQuestions(data.questions)
-        setTimeLeft(data.duration)
-        setLoading(false)
-    }
+  // Timer
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setTimeLeft(prev => {
+        if (prev <= 1) {
+          handleComplete();
+          return 0;
+        }
+        return prev - 1;
+      });
+    }, 1000);
 
-    useEffect(()=>{
-        const timer = setInterval(()=>{
-            setTimeLeft(prev => {
-                if(prev <= 1){
-                    handleComplete()
-                    return 0
-                }
-                return prev - 1
-            })
-        },1000)
+    return () => clearInterval(timer);
+  }, []);
 
-        return ()=>clearInterval(timer)
-    },[])
+  // Save Answer
+  const handleAnswer = async (option) => {
+    const question_id = questions[currentIndex]._id;
 
-    const handleAnswer = async(option)=>{
-        const question_id = questions[currentIndex]._id
+    await saveAnswer(sessionId, question_id, option);
 
-        await saveAnswer(sessionId, question_id, option)
+    setAnswers({
+      ...answers,
+      [currentIndex]: option
+    });
+  };
 
-        setAnswers({
-            ...answers,
-            [currentIndex]: option
-        })
-    }
+  // Next Question
+  const handleNext = () => {
+    if (currentIndex < questions.length - 1)
+      setCurrentIndex(currentIndex + 1);
+  };
 
-    const handleNext = ()=>{
-        if(currentIndex < questions.length - 1)
-            setCurrentIndex(currentIndex + 1)
-    }
+  // Complete Session
+  const handleComplete = async () => {
+    await completeSession(sessionId);
+    alert("Aptitude Completed!");
+    navigate("/verbal");
+  };
 
-    const handleComplete = async ()=>{
-        await completeSession(sessionId)
-        alert("Aptitude Completed!")
+  if (loading)
+    return <h2 style={{ color: "white" }}>Loading...</h2>;
 
-        // ✅ Navigate to verbal route (NOT file name)
-        navigate("/verbal")
-    }
+  const question = questions[currentIndex];
 
-    if(loading)
-        return <h2 style={{color:"white"}}>Loading...</h2>
+  return (
+  <div className="aptitude-page">
 
-    const question = questions[currentIndex]
+    {/* Top Ribbon */}
+    <div className="top-ribbon">
+      <div className="title-area">
+        <div className="brand-title">IntelliInterview</div>
+        <div className="module-title">Aptitude & Logical Reasoning</div>
+      </div>
 
-    return(
-        <div className="aptitude-container">
+      <div className="timer-box">
+        ⏱
+        {Math.floor(timeLeft / 60)} :
+        {timeLeft % 60 < 10
+          ? "0" + (timeLeft % 60)
+          : timeLeft % 60}
+      </div>
+    </div>
 
-            {/* Sidebar */}
-            <div className="aptitude-sidebar">
-                {questions.map((q,index)=>{
+    {/* Body */}
+    <div className="aptitude-body">
 
-                    const answered = answers[index]
-
-                    return(
-                        <div
-                            key={index}
-                            className={`question-indicator 
-                                ${answered ? "attempted" : ""} 
-                                ${currentIndex === index ? "active" : ""}`}
-                            onClick={()=>setCurrentIndex(index)}
-                        >
-                            {index+1}
-                        </div>
-                    )
-                })}
+      {/* Sidebar (Question Strip) */}
+      <div className="aptitude-sidebar">
+        {questions.map((q, index) => {
+          const answered = answers[index];
+          return (
+            <div
+              key={index}
+              className={`question-indicator 
+                ${answered ? "attempted" : ""} 
+                ${currentIndex === index ? "active" : ""}`}
+              onClick={() => setCurrentIndex(index)}
+            >
+              {index + 1}
             </div>
+          );
+        })}
+      </div>
 
-            {/* Question Area */}
-            <div className="aptitude-content">
+      {/* Question Area */}
+      <div className="question-area">
 
-                <div className="timer">
-                    Time Left: {Math.floor(timeLeft/60)} :
-                    {timeLeft%60 < 10 ? "0"+(timeLeft%60) : timeLeft%60}
-                </div>
+        <div className="question-card">
 
-                <div className="question-card">
+          <div className="question-content">
+            <h2>
+              Q{currentIndex + 1}. {question.question}
+            </h2>
 
-                    <h2>
-                        Q{currentIndex+1}. {question.question}
-                    </h2>
+            {question.options.map((opt, index) => {
+              const optionLabel = ["A", "B", "C", "D"][index];
+              const isSelected = answers[currentIndex] === opt;
 
-                    {question.options.map((opt,index)=>(
-                        <button
-                            key={index}
-                            className="option-button"
-                            onClick={()=>handleAnswer(opt)}
-                        >
-                            {opt}
-                        </button>
-                    ))}
+              return (
+                <button
+                  key={index}
+                  className="option-button"
+                  onClick={() => handleAnswer(opt)}
+                >
+                  {/* Radio circle */}
+                  <span className={`option-radio ${isSelected ? "selected" : ""}`}></span>
 
-                    {currentIndex < questions.length - 1 ? (
-                        <button
-                            className="next-btn"
-                            onClick={handleNext}
-                        >
-                            Next
-                        </button>
-                    ) : (
-                        <button
-                            className="submit-btn"
-                            onClick={handleComplete}
-                        >
-                            Submit
-                        </button>
-                    )}
+                  {/* Option Label */}
+                  <strong>{optionLabel}.</strong> {opt}
+                </button>
+              );
+            })}
+          </div>
 
-                </div>
-
-            </div>
+          <div className="button-area">
+            {currentIndex < questions.length - 1 ? (
+              <button
+                className="next-btn"
+                onClick={handleNext}
+              >
+                Next
+              </button>
+            ) : (
+              <button
+                className="submit-btn"
+                onClick={handleComplete}
+              >
+                Submit
+              </button>
+            )}
+          </div>
 
         </div>
-    )
+
+      </div>
+
+    </div>
+
+  </div>
+);
 }

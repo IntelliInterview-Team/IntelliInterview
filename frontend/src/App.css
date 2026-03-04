@@ -88,33 +88,80 @@ body {
 .home-card button:active {
   transform: scale(0.95);
 }
-
 /* ============================= */
 /* ========= APTITUDE ========= */
 /* ============================= */
 
-.aptitude-container {
+.aptitude-page {
+  height: 100vh;
   display: flex;
-  min-height: 100vh;
+  flex-direction: column;
   color: white;
 }
 
-/* Sidebar */
-.aptitude-sidebar {
-  width: 120px;
-  padding: 20px;
-  background: rgba(255,255,255,0.08);
+/* ===== Top Ribbon (like ChatGPT header) ===== */
+.top-ribbon {
+  height: 70px;
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  gap: 15px;
+  padding: 0 30px;
+  background: rgba(0,0,0,0.2);
+  backdrop-filter: blur(10px);
 }
 
+/* Left side titles */
+.title-area {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-title {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.module-title {
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+/* Timer (like Share button position) */
+.timer-box {
+  background: white;
+  color: #111827;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* ===== Main Layout (like sidebar + chat area) ===== */
+.aptitude-body {
+  flex: 1;
+  display: flex;
+  overflow: hidden;
+}
+
+/* Sidebar (like New Chat panel) */
+.aptitude-sidebar {
+  width: 220px;
+  background: rgba(255,255,255,0.08);
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  align-content: start;
+  overflow-y: auto;
+}
+
+/* Question indicators */
 .question-indicator {
-  width: 38px;
-  height: 38px;
-  border-radius: 50%;
-  background-color: #d1d5db; /* default grey */
+  height: 40px;
+  border-radius: 6px;
+  background-color: #ffb3a7; /* light reddish-orange */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -126,39 +173,54 @@ body {
 
 .question-indicator.attempted {
   background-color: #22c55e; /* green */
+  color: white;
 }
 
 .question-indicator.active {
-  outline: 3px solid white;
+  outline: 2px solid white;
 }
 
-/* Question Area */
-.aptitude-content {
+/* ===== Question Workspace (like Chat Box) ===== */
+.question-area {
   flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   padding: 40px;
 }
 
-.timer {
-  font-size: 18px;
-  margin-bottom: 20px;
-}
-
+/* Question Card (like Chat input box area) */
 .question-card {
+  width: 850px;
+  height: 500px;
   background: #f3f4f6;
   color: #111827;
-  padding: 30px;
-  border-radius: 18px;
-  box-shadow: 0px 15px 25px rgba(0,0,0,0.2);
+  border-radius: 16px;
+  box-shadow: 0px 10px 25px rgba(0,0,0,0.25);
+  display: flex;
+  flex-direction: column;
+  padding: 25px;
 }
 
+/* Scrollable question section */
+.question-content {
+  flex: 1;
+  overflow-y: auto;
+  text-align: left;
+}
+
+/* Options */
 .option-button {
+  display: flex;
+  align-items: center;
+  gap: 12px;
   width: 100%;
   padding: 12px;
-  border-radius: 10px;
-  border: none;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
   cursor: pointer;
   background: #e5e7eb;
-  margin-top: 12px;
+  margin-top: 10px;
   transition: 0.3s ease;
 }
 
@@ -166,11 +228,34 @@ body {
   background: #d1d5db;
 }
 
+/* Custom radio circle */
+.option-radio {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 2px solid grey;
+  display: inline-block;
+  flex-shrink: 0;
+  position: relative;
+}
+
+.option-radio.selected {
+  background-color: black;
+  border-color: black;
+}
+
+/* Bottom action bar (like Send button area) */
+.button-area {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 15px;
+}
+
+/* Next / Submit */
 .next-btn,
 .submit-btn {
-  margin-top: 25px;
-  padding: 10px 25px;
-  border-radius: 30px;
+  padding: 10px 20px;
+  border-radius: 25px;
   border: none;
   cursor: pointer;
   color: white;
