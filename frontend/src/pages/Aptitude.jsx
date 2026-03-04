@@ -73,7 +73,7 @@ export default function Aptitude(){
 
     const handleAnswer = async(option)=>{
 
-        const question_id = questions[currentIndex].question_id
+        const question_id = questions[currentIndex]._id
 
 
         await saveAnswer(session_id, question_id, option)
@@ -100,9 +100,8 @@ export default function Aptitude(){
 
     const handleComplete = async ()=>{
 
-        const result = await completeSession(session_id)
-
-        alert(`Score: ${result.score} / ${result.total}`)
+        await completeSession(session_id)
+        alert("Test Completed! successfully submitted")
     }
 
 

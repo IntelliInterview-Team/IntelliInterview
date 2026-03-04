@@ -2,11 +2,9 @@ import React from "react"
 import { useNavigate } from "react-router-dom"
 import { startSession } from "../services/api"
 
-
-export default function Home(){
+function Home(){
 
     const navigate = useNavigate()
-
 
     const handleStart = async (level) => {
 
@@ -14,20 +12,20 @@ export default function Home(){
 
         localStorage.setItem("session_id", data.session_id)
 
+        // Navigate to first module
         navigate("/aptitude")
     }
-
 
     return(
 
         <div style={{textAlign:"center"}}>
 
-            <h1>Welcome to IntelliInterview</h1>
+            <h1>IntelliInterview</h1>
 
             <p>
-                Practice aptitude interview questions with timer and evaluation
+                Simulate a real technical interview experience.
+                Start your interview by selecting a difficulty level.
             </p>
-
 
             <div style={{
                 display:"flex",
@@ -36,39 +34,29 @@ export default function Home(){
                 marginTop:"40px"
             }}>
 
-
                 <div style={cardStyle}>
-
                     <h2>Beginner</h2>
-
+                    <p>Service-based company level</p>
                     <button onClick={()=>handleStart("beginner")}>
-                        Start
+                        Start Interview
                     </button>
-
                 </div>
 
-
                 <div style={cardStyle}>
-
                     <h2>Intermediate</h2>
-
+                    <p>Mid-level company difficulty</p>
                     <button onClick={()=>handleStart("intermediate")}>
-                        Start
+                        Start Interview
                     </button>
-
                 </div>
-
 
                 <div style={cardStyle}>
-
                     <h2>Advanced</h2>
-
+                    <p>Product-based company level</p>
                     <button onClick={()=>handleStart("advanced")}>
-                        Start
+                        Start Interview
                     </button>
-
                 </div>
-
 
             </div>
 
@@ -77,11 +65,10 @@ export default function Home(){
     )
 }
 
-
-
 const cardStyle = {
-
     border:"1px solid black",
     padding:"20px",
-    width:"200px"
+    width:"220px",
+    borderRadius:"10px"
 }
+export default Home 

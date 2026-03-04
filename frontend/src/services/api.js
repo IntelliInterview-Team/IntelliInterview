@@ -1,17 +1,32 @@
 const BASE_URL = "http://localhost:8000"
 
+// Start Session
 export const startSession = async (level) => {
-
     const res = await fetch(`${BASE_URL}/session/start/${level}`, {
         method: "POST"
     })
-
     return await res.json()
 }
 
-export const getAptitudeQuestions = async (level) => {
+// Get Questions
+export const getSessionQuestions = async (session_id) => {
+    const res = await fetch(`${BASE_URL}/session/${session_id}/questions`)
+    return await res.json()
+}
 
-    const res = await fetch(`${BASE_URL}/aptitude/${level}`)
+// Save Answer
+export const saveAnswer = async (session_id, question_id, selected_answer) => {
+    const res = await fetch(
+        `${BASE_URL}/session/${session_id}/answer?question_id=${question_id}&selected_answer=${selected_answer}`,
+        { method: "POST" }
+    )
+    return await res.json()
+}
 
+// Complete Session
+export const completeSession = async (session_id) => {
+    const res = await fetch(`${BASE_URL}/session/${session_id}/complete`, {
+        method: "POST"
+    })
     return await res.json()
 }
