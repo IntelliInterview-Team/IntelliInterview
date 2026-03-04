@@ -11,7 +11,7 @@ client = MongoClient(MONGO_URL)
 db = client.get_database("intelliinterview")
 print("DATABASE FILE IS RUNNING")
 
-questions_collection = db.get_collection("questions")
+questions_collection = db.get_collection("aptitude")
 print("DATABASE FILE IS RUNNING")
 
 sessions_collection = db.get_collection("sessions")
