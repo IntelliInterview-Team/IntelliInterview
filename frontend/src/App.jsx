@@ -10,7 +10,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/aptitude/:sessionId" element={<Aptitude />} />
-        <Route path="/verbal" element={<Verbal />} />
+        <Route path="/verbal/:sessionId" element={<Verbal />} />
       </Routes>
     </BrowserRouter>
   );

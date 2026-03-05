@@ -1,5 +1,8 @@
 from app.database import questions_collection
+from app.database import verbal_collection
 import random
+
+
 def fetch_aptitude_questions(level, limit=20):
 
     questions = list(
@@ -36,3 +39,22 @@ def fetch_aptitude_questions(level, limit=20):
         selected.extend(remaining[:limit - len(selected)])
 
     return selected
+
+
+
+def fetch_verbal_questions(level, limit=15):
+
+    questions = list(
+        verbal_collection.find(
+            {
+                "level": level
+            }
+        )
+    )
+
+    if len(questions) < limit:
+        raise Exception("Not enough questions")
+
+    random.shuffle(questions)
+
+    return questions[:limit]

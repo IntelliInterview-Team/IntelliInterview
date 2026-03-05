@@ -14,5 +14,8 @@ print("DATABASE FILE IS RUNNING")
 questions_collection = db.get_collection("aptitude")
 print("DATABASE FILE IS RUNNING")
 
+verbal_collection = db.get_collection("verbal")
+print("DATABASE FILE IS RUNNING")
+
 sessions_collection = db.get_collection("sessions")
 print("DATABASE FILE IS RUNNING")

@@ -1,6 +1,7 @@
 from fastapi import APIRouter, HTTPException
 from app.database import sessions_collection
 from app.services.question_service import fetch_aptitude_questions
+from app.services.question_service import fetch_verbal_questions
 import uuid
 from datetime import datetime
 
@@ -51,3 +52,20 @@ def complete_session(session_id: str):
         raise HTTPException(status_code=404, detail="Session not found")
     sessions_collection.update_one({"session_id": session_id}, {"$set": {"completed": True}})
     return {"status": "completed"}
+
+@router.get("/session/{session_id}/verbal")
+def get_verbal_questions(session_id: str):
+
+    session = sessions_collection.find_one({"session_id": session_id})
+
+    if not session:
+        raise HTTPException(status_code=404, detail="Session not found")
+
+    level = session["level"]
+
+    questions = fetch_verbal_questions(level)
+
+    return {
+        "questions": questions,
+        "duration": 900
+    }

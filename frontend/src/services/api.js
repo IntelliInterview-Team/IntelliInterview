@@ -30,3 +30,8 @@ export const completeSession = async (session_id) => {
     })
     return await res.json()
 }
+// verbal questions
+export const getVerbalQuestions = async (session_id) => {
+    const res = await fetch(`${BASE_URL}/session/${session_id}/verbal`)
+    return await res.json()
+}
