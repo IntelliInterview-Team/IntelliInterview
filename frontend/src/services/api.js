@@ -35,3 +35,8 @@ export const getVerbalQuestions = async (session_id) => {
     const res = await fetch(`${BASE_URL}/session/${session_id}/verbal`)
     return await res.json()
 }
+// corecs questions
+export const getCoreCSQuestions = async (session_id) => {
+    const res = await fetch(`${BASE_URL}/session/${session_id}/corecs`)
+    return await res.json()
+}

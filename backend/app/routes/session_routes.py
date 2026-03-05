@@ -2,6 +2,7 @@ from fastapi import APIRouter, HTTPException
 from app.database import sessions_collection
 from app.services.question_service import fetch_aptitude_questions
 from app.services.question_service import fetch_verbal_questions
+from app.services.question_service import fetch_corecs_questions    
 import uuid
 from datetime import datetime
 
@@ -68,4 +69,17 @@ def get_verbal_questions(session_id: str):
     return {
         "questions": questions,
         "duration": 900
+    }
+# corecs questions endpoint
+@router.get("/session/{session_id}/corecs")
+def get_corecs_questions(session_id: str):
+
+    session = sessions_collection.find_one({"session_id": session_id})  
+    if not session:
+        raise HTTPException(status_code=404, detail="Session not found")    
+    level = session["level"]
+    questions = fetch_corecs_questions(level)
+    return {
+        "questions": questions,
+        "duration": 1200
     }

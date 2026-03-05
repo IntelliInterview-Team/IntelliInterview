@@ -1,5 +1,6 @@
 from app.database import questions_collection
 from app.database import verbal_collection
+from app.database import corecs_collection  
 import random
 
 
@@ -40,7 +41,7 @@ def fetch_aptitude_questions(level, limit=20):
 
     return selected
 
-
+# fetching verbal questions
 
 def fetch_verbal_questions(level, limit=15):
 
@@ -58,3 +59,32 @@ def fetch_verbal_questions(level, limit=15):
     random.shuffle(questions)
 
     return questions[:limit]
+
+# fetching corecs questions
+def fetch_corecs_questions(level):
+
+    subjects = ["dbms", "os", "cn", "oop"]
+
+    selected_questions = []
+
+    for subject in subjects:
+
+        questions = list(
+            corecs_collection.find(
+                {
+                    "level": level,
+                    "topic": subject
+                }
+            )
+        )
+
+        if len(questions) < 5:
+            raise Exception(f"Not enough questions in {subject}")
+
+        random.shuffle(questions)
+
+        selected_questions.extend(questions[:5])
+
+    random.shuffle(selected_questions)
+
+    return selected_questions

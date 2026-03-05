@@ -15,7 +15,10 @@ questions_collection = db.get_collection("aptitude")
 print("DATABASE FILE IS RUNNING")
 
 verbal_collection = db.get_collection("verbal")
-print("DATABASE FILE IS RUNNING")
+print("verbal collection is running")
+
+corecs_collection = db.get_collection("corecs")
+print("corecs collection is running")
 
 sessions_collection = db.get_collection("sessions")
 print("DATABASE FILE IS RUNNING")
