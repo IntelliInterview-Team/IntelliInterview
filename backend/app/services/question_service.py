@@ -125,3 +125,20 @@ def fetch_coding_questions(level, limit=2):
         q["sample_tests"] = q.get("sample_tests", [])
 
     return selected
+def fetch_speech_questions(level, limit=5):
+
+    questions = list(
+        verbal_collection.find(
+            {
+                "level": level,
+                "module": "speech"
+            }
+        )
+    )
+
+    if len(questions) < limit:
+        raise Exception("Not enough speech questions")
+
+    random.shuffle(questions)
+
+    return questions[:limit]

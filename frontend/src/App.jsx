@@ -7,6 +7,7 @@ import Verbal from "./pages/Verbal";
 import CoreCS from "./pages/CoreCS";
 import Coding from "./pages/Coding";
 import Speech from "./pages/Speech"; // create later
+import Result from "./pages/Result"; // create later
 
 export default function App() {
   return (
@@ -18,6 +19,7 @@ export default function App() {
         <Route path="/corecs/:sessionId" element={<CoreCS />} />
         <Route path="/coding/:sessionId" element={<Coding />} />
         <Route path="/speech/:sessionId" element={<Speech />} />
+        <Route path="/result/:sessionId" element={<Result/>} />
       </Routes>
     </BrowserRouter>
   );

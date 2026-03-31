@@ -1,55 +1,94 @@
 const BASE_URL = "http://localhost:8000";
 
-// ================= SESSION =================
+// ==========================
+// START SESSION
+// ==========================
 export const startSession = async (level) => {
   try {
     const res = await fetch(`${BASE_URL}/session/start/${level}`, {
       method: "POST",
     });
-    if (!res.ok) throw new Error();
+
+    if (!res.ok) throw new Error("Failed to start session");
+
     return await res.json();
-  } catch {
+  } catch (err) {
+    console.error("START SESSION ERROR:", err);
     return { error: "Failed to start session" };
   }
 };
 
+// ==========================
+// GET QUESTIONS (APTITUDE)
+// ==========================
 export const getSessionQuestions = async (session_id) => {
   try {
-    const res = await fetch(`${BASE_URL}/session/${session_id}/questions`);
-    if (!res.ok) throw new Error();
+    const res = await fetch(
+      `${BASE_URL}/session/${session_id}/questions`
+    );
+
+    if (!res.ok) throw new Error("Failed to fetch questions");
+
     return await res.json();
-  } catch {
+  } catch (err) {
+    console.error("GET QUESTIONS ERROR:", err);
     return { questions: [] };
   }
 };
 
-export const saveAnswer = async (session_id, question_id, selected_answer) => {
+// ==========================
+// SAVE ANSWER (APTITUDE)
+// ==========================
+export const saveAnswer = async (
+  session_id,
+  question_id,
+  selected_answer
+) => {
   try {
     const res = await fetch(
       `${BASE_URL}/session/${session_id}/answer?question_id=${encodeURIComponent(
         question_id
       )}&selected_answer=${encodeURIComponent(selected_answer)}`,
-      { method: "POST" }
+      {
+        method: "POST",
+      }
     );
-    if (!res.ok) throw new Error();
+
+    if (!res.ok) throw new Error("Failed to save answer");
+
     return await res.json();
-  } catch {
+  } catch (err) {
+    console.error("SAVE ANSWER ERROR:", err);
     return { error: "Failed to save answer" };
   }
 };
 
-// ================= VERBAL =================
+// ==========================
+// VERBAL QUESTIONS
+// ==========================
 export const getVerbalQuestions = async (session_id) => {
   try {
-    const res = await fetch(`${BASE_URL}/session/${session_id}/verbal`);
-    if (!res.ok) throw new Error();
+    const res = await fetch(
+      `${BASE_URL}/session/${session_id}/verbal`
+    );
+
+    if (!res.ok) throw new Error("Failed");
+
     return await res.json();
-  } catch {
+  } catch (err) {
+    console.error(err);
     return { questions: [] };
   }
 };
 
-export const saveVerbalAnswer = async (session_id, question_id, selected_answer) => {
+// ==========================
+// SAVE VERBAL ANSWER
+// ==========================
+export const saveVerbalAnswer = async (
+  session_id,
+  question_id,
+  selected_answer
+) => {
   try {
     const res = await fetch(
       `${BASE_URL}/session/${session_id}/verbal/answer?question_id=${encodeURIComponent(
@@ -57,25 +96,42 @@ export const saveVerbalAnswer = async (session_id, question_id, selected_answer)
       )}&selected_answer=${encodeURIComponent(selected_answer)}`,
       { method: "POST" }
     );
+
     if (!res.ok) throw new Error();
+
     return await res.json();
-  } catch {
+  } catch (err) {
+    console.error(err);
     return { error: "Failed to save verbal answer" };
   }
 };
 
-// ================= CORE CS =================
+// ==========================
+// CORE CS QUESTIONS
+// ==========================
 export const getCoreCSQuestions = async (session_id) => {
   try {
-    const res = await fetch(`${BASE_URL}/session/${session_id}/corecs`);
+    const res = await fetch(
+      `${BASE_URL}/session/${session_id}/corecs`
+    );
+
     if (!res.ok) throw new Error();
+
     return await res.json();
-  } catch {
+  } catch (err) {
+    console.error(err);
     return { questions: [] };
   }
 };
 
-export const saveCoreCSAnswer = async (session_id, question_id, selected_answer) => {
+// ==========================
+// SAVE CORE CS ANSWER
+// ==========================
+export const saveCoreCSAnswer = async (
+  session_id,
+  question_id,
+  selected_answer
+) => {
   try {
     const res = await fetch(
       `${BASE_URL}/session/${session_id}/corecs/answer?question_id=${encodeURIComponent(
@@ -83,24 +139,43 @@ export const saveCoreCSAnswer = async (session_id, question_id, selected_answer)
       )}&selected_answer=${encodeURIComponent(selected_answer)}`,
       { method: "POST" }
     );
+
     if (!res.ok) throw new Error();
+
     return await res.json();
-  } catch {
+  } catch (err) {
+    console.error(err);
     return { error: "Failed to save core CS answer" };
   }
 };
 
-// ================= CODING =================
+// ==========================
+// CODING QUESTIONS
+// ==========================
 export const getCodingQuestions = async (session_id) => {
   try {
-    const res = await fetch(`${BASE_URL}/session/${session_id}/coding`);
+    const res = await fetch(
+      `${BASE_URL}/session/${session_id}/coding`
+    );
+
     if (!res.ok) throw new Error();
+
     return await res.json();
-  } catch {
+  } catch (err) {
+    console.error(err);
     return { questions: [] };
   }
 };
-export const submitCode = async (sessionId, questionId, code, mode) => {
+
+// ==========================
+// SUBMIT CODE
+// ==========================
+export const submitCode = async (
+  sessionId,
+  questionId,
+  code,
+  mode
+) => {
   try {
     const response = await fetch(
       `${BASE_URL}/session/${sessionId}/submit-code`,
@@ -119,9 +194,6 @@ export const submitCode = async (sessionId, questionId, code, mode) => {
 
     const data = await response.json();
 
-    console.log("API RESPONSE:", data);
-
-    // ✅ handle backend error safely
     if (!response.ok) {
       return {
         result: {
@@ -134,9 +206,9 @@ export const submitCode = async (sessionId, questionId, code, mode) => {
     }
 
     return data;
-
   } catch (error) {
     console.error("Submit Code Error:", error);
+
     return {
       result: {
         passed: 0,
@@ -147,16 +219,51 @@ export const submitCode = async (sessionId, questionId, code, mode) => {
     };
   }
 };
-// ================= COMPLETE SESSION =================
+
+// ==========================
+// SPEECH QUESTIONS
+// ==========================
+export const getSpeechQuestions = async (sessionId) => {
+  try {
+    const res = await fetch(
+      `${BASE_URL}/session/${sessionId}/speech`
+    );
+
+    if (!res.ok) throw new Error("API failed");
+
+    const data = await res.json();
+
+    return {
+      questions: data.questions || [],
+      duration: data.duration || 600,
+    };
+  } catch (err) {
+    console.error("SPEECH ERROR:", err);
+
+    return {
+      questions: [],
+      duration: 600,
+    };
+  }
+};
+
+// ==========================
+// COMPLETE SESSION
+// ==========================
 export const completeSession = async (session_id) => {
   try {
     const res = await fetch(
       `${BASE_URL}/session/${session_id}/complete`,
-      { method: "POST" }
+      {
+        method: "POST",
+      }
     );
+
     if (!res.ok) throw new Error();
+
     return await res.json();
-  } catch {
+  } catch (err) {
+    console.error(err);
     return { error: "Failed to complete session" };
   }
 };

@@ -1,4 +1,4 @@
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, HTTPException, UploadFile, File
 from pydantic import BaseModel
 
 import app.services.coding_service as coding_service
@@ -17,8 +17,9 @@ from datetime import datetime
 
 router = APIRouter()
 
+
 # =========================
-# REQUEST MODEL (MATCHES FRONTEND)
+# REQUEST MODEL
 # =========================
 class CodeRequest(BaseModel):
     question_id: str
@@ -43,6 +44,8 @@ def start_session(level: str):
         "verbal_answers": {},
         "corecs_answers": {},
         "coding_answers": {},
+        "speech": [],                # ✅ added
+        "speech_questions": [],      # ✅ added
         "started_at": datetime.now(),
         "completed": False
     }
@@ -69,10 +72,6 @@ def get_session_questions(session_id: str):
 
 @router.post("/session/{session_id}/answer")
 def save_answer(session_id: str, question_id: str, selected_answer: str):
-    session = sessions_collection.find_one({"session_id": session_id})
-    if not session:
-        raise HTTPException(status_code=404, detail="Session not found")
-
     sessions_collection.update_one(
         {"session_id": session_id},
         {"$set": {f"answers.{question_id}": selected_answer}}
@@ -87,8 +86,6 @@ def save_answer(session_id: str, question_id: str, selected_answer: str):
 @router.get("/session/{session_id}/verbal")
 def get_verbal_questions(session_id: str):
     session = sessions_collection.find_one({"session_id": session_id})
-    if not session:
-        raise HTTPException(status_code=404, detail="Session not found")
 
     questions = fetch_verbal_questions(session["level"])
 
@@ -100,10 +97,6 @@ def get_verbal_questions(session_id: str):
 
 @router.post("/session/{session_id}/verbal/answer")
 def save_verbal_answer(session_id: str, question_id: str, selected_answer: str):
-    session = sessions_collection.find_one({"session_id": session_id})
-    if not session:
-        raise HTTPException(status_code=404, detail="Session not found")
-
     sessions_collection.update_one(
         {"session_id": session_id},
         {"$set": {f"verbal_answers.{question_id}": selected_answer}}
@@ -118,8 +111,6 @@ def save_verbal_answer(session_id: str, question_id: str, selected_answer: str):
 @router.get("/session/{session_id}/corecs")
 def get_corecs_questions(session_id: str):
     session = sessions_collection.find_one({"session_id": session_id})
-    if not session:
-        raise HTTPException(status_code=404, detail="Session not found")
 
     questions = fetch_corecs_questions(session["level"])
 
@@ -131,10 +122,6 @@ def get_corecs_questions(session_id: str):
 
 @router.post("/session/{session_id}/corecs/answer")
 def save_corecs_answer(session_id: str, question_id: str, selected_answer: str):
-    session = sessions_collection.find_one({"session_id": session_id})
-    if not session:
-        raise HTTPException(status_code=404, detail="Session not found")
-
     sessions_collection.update_one(
         {"session_id": session_id},
         {"$set": {f"corecs_answers.{question_id}": selected_answer}}
@@ -149,8 +136,6 @@ def save_corecs_answer(session_id: str, question_id: str, selected_answer: str):
 @router.get("/session/{session_id}/coding")
 def get_coding_questions(session_id: str):
     session = sessions_collection.find_one({"session_id": session_id})
-    if not session:
-        raise HTTPException(status_code=404, detail="Session not found")
 
     questions = fetch_coding_questions(session["level"])
 
@@ -161,27 +146,19 @@ def get_coding_questions(session_id: str):
 
 
 # =========================
-# 🔥 FINAL FIXED SUBMIT API
+# SUBMIT CODE
 # =========================
 @router.post("/session/{session_id}/submit-code")
 def submit_code(session_id: str, data: CodeRequest):
 
-    print("🔥 RECEIVED:", data)   # ✅ DEBUG (remove later)
-
     session = sessions_collection.find_one({"session_id": session_id})
-    if not session:
-        raise HTTPException(status_code=404, detail="Session not found")
 
-    try:
-        result = coding_service.evaluate_submission(
-            data.question_id,
-            data.code,
-            data.mode
-        )
-    except Exception as e:
-        return {"result": {"error": str(e), "passed": 0, "total": 0}}
+    result = coding_service.evaluate_submission(
+        data.question_id,
+        data.code,
+        data.mode
+    )
 
-    # ✅ SAVE ONLY ON SUBMIT
     if data.mode == "submit":
         sessions_collection.update_one(
             {"session_id": session_id},
@@ -199,20 +176,64 @@ def submit_code(session_id: str, data: CodeRequest):
 
 
 # =========================
-# COMPLETE CODING
+# 🎤 SPEECH (HARDCODED)
 # =========================
-@router.post("/session/{session_id}/coding/complete")
-def complete_coding(session_id: str):
+@router.get("/session/{session_id}/speech")
+def get_speech_questions(session_id: str):
     session = sessions_collection.find_one({"session_id": session_id})
-    if not session:
-        raise HTTPException(status_code=404, detail="Session not found")
+
+    questions = [
+        {"question": "Tell me about yourself"},
+        {"question": "Why should we hire you?"},
+        {"question": "Describe a challenge you faced"},
+        {"question": "What are your strengths and weaknesses?"},
+        {"question": "Where do you see yourself in 5 years?"}
+    ]
 
     sessions_collection.update_one(
         {"session_id": session_id},
-        {"$set": {"coding_completed": True}}
+        {"$set": {"speech_questions": questions}}
     )
 
-    return {"status": "coding_completed"}
+    return {
+        "questions": questions,
+        "duration": 600
+    }
+
+
+@router.post("/session/{session_id}/speech/answer")
+async def save_speech_answer(session_id: str, file: UploadFile = File(...)):
+
+    sessions_collection.update_one(
+        {"session_id": session_id},
+        {
+            "$push": {
+                "speech": {
+                    "transcript": "Recorded answer",
+                    "feedback": "Good attempt 👍"
+                }
+            }
+        }
+    )
+
+    return {"status": "saved"}
+
+
+# =========================
+# RESULT
+# =========================
+@router.get("/session/{session_id}/result")
+def get_result(session_id: str):
+    session = sessions_collection.find_one({"session_id": session_id})
+
+    return {
+        "speech_questions": session.get("speech_questions", []),
+        "speech": session.get("speech", []),
+        "coding": session.get("coding_answers", {}),
+        "verbal": session.get("verbal_answers", {}),
+        "corecs": session.get("corecs_answers", {}),
+        "aptitude": session.get("answers", {})
+    }
 
 
 # =========================
@@ -220,10 +241,6 @@ def complete_coding(session_id: str):
 # =========================
 @router.post("/session/{session_id}/complete")
 def complete_session(session_id: str):
-    session = sessions_collection.find_one({"session_id": session_id})
-    if not session:
-        raise HTTPException(status_code=404, detail="Session not found")
-
     sessions_collection.update_one(
         {"session_id": session_id},
         {"$set": {"completed": True}}
