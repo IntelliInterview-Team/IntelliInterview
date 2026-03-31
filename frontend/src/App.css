@@ -275,3 +275,66 @@ body {
 .submit-btn:hover {
   transform: scale(1.05);
 }
+/* ============================= */
+/* ========= CODING UI ========= */
+/* ============================= */
+
+.coding-body {
+  flex: 1;
+  display: flex;
+  overflow: hidden;
+}
+
+/* LEFT STRIP */
+.coding-sidebar {
+  width: 100px;
+  background: #e9d5ff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 10px;
+  gap: 15px;
+}
+
+/* BIG BLOCKS */
+.coding-qblock {
+  width: 65px;
+  height: 65px;
+  background: black;
+  color: white;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.coding-qblock.active {
+  background: #f59e0b;
+}
+
+/* QUESTION AREA */
+.coding-question-area {
+  width: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+/* EDITOR AREA */
+.coding-editor-area {
+  width: 60%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* BUTTON ROW */
+.coding-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}

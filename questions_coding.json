@@ -1,0 +1,2660 @@
+[
+{
+  "_id": "cod_beg_array_001",
+  "module": "coding",
+  "level": "beginner",
+  "topic": "array",
+  "title": "Two Sum",
+  "question": "Given an array of integers nums and an integer target, return the indices of the two numbers such that they add up to the target. You may assume that each input will have exactly one solution, and you may not use the same element twice. You can return the answer in any order.",
+  "sample_tests": [
+    {
+      "input": "nums = [2,7,11,15], target = 9",
+      "output": "[0,1]"
+    },
+    {
+      "input": "nums = [3,2,4], target = 6",
+      "output": "[1,2]"
+    }
+  ],
+  "constraints": [
+    "2 <= nums.length <= 10^4",
+    "-10^9 <= nums[i] <= 10^9",
+    "-10^9 <= target <= 10^9",
+    "Only one valid answer exists",
+    "You may not use the same element twice"
+  ],
+  "tags": ["Array", "Hash Table"]
+},
+{
+  "_id": "cod_beg_array_002",
+  "module": "coding",
+  "level": "beginner",
+  "topic": "array",
+  "title": "Maximum Subarray",
+  "question": "Given an integer array nums, find the contiguous subarray (containing at least one number) which has the largest sum and return its sum.",
+  "sample_tests": [
+    {
+      "input": "nums = [-2,1,-3,4,-1,2,1,-5,4]",
+      "output": "6"
+    },
+    {
+      "input": "nums = [1]",
+      "output": "1"
+    }
+  ],
+  "constraints": [
+    "1 <= nums.length <= 10^5",
+    "-10^4 <= nums[i] <= 10^4"
+  ],
+  "tags": ["Array", "Dynamic Programming", "Kadane Algorithm"]
+},
+{
+  "_id": "cod_beg_array_003",
+  "module": "coding",
+  "level": "beginner",
+  "topic": "array",
+  "title": "Move Zeroes",
+  "question": "Given an integer array nums, move all 0's to the end of the array while maintaining the relative order of the non-zero elements. The operation must be done in-place without making a copy of the array.",
+  "sample_tests": [
+    {
+      "input": "nums = [0,1,0,3,12]",
+      "output": "[1,3,12,0,0]"
+    },
+    {
+      "input": "nums = [0]",
+      "output": "[0]"
+    }
+  ],
+  "constraints": [
+    "1 <= nums.length <= 10^4",
+    "-2^31 <= nums[i] <= 2^31 - 1"
+  ],
+  "tags": ["Array", "Two Pointers"]
+},
+{
+  "_id": "cod_beg_array_004",
+  "module": "coding",
+  "level": "beginner",
+  "topic": "array",
+  "title": "Rotate Array",
+  "question": "Given an integer array nums, rotate the array to the right by k steps, where k is non-negative. The rotation should be done in-place.",
+  "sample_tests": [
+    {
+      "input": "nums = [1,2,3,4,5,6,7], k = 3",
+      "output": "[5,6,7,1,2,3,4]"
+    },
+    {
+      "input": "nums = [-1,-100,3,99], k = 2",
+      "output": "[3,99,-1,-100]"
+    }
+  ],
+  "constraints": [
+    "1 <= nums.length <= 10^5",
+    "-2^31 <= nums[i] <= 2^31 - 1",
+    "0 <= k <= 10^5"
+  ],
+  "tags": ["Array", "Two Pointers", "In-place"]
+},
+{
+  "_id": "cod_beg_string_001",
+  "module": "coding",
+  "level": "beginner",
+  "topic": "string",
+  "title": "Valid Palindrome",
+  "question": "A phrase is a palindrome if, after converting all uppercase letters into lowercase letters and removing all non-alphanumeric characters, it reads the same forward and backward. Alphanumeric characters include letters and numbers. Given a string s, return true if it is a palindrome, or false otherwise.",
+  "sample_tests": [
+    {
+      "input": "s = \"A man, a plan, a canal: Panama\"",
+      "output": "true"
+    },
+    {
+      "input": "s = \"race a car\"",
+      "output": "false"
+    }
+  ],
+  "constraints": [
+    "1 <= s.length <= 2 * 10^5",
+    "s consists only of printable ASCII characters"
+  ],
+  "tags": ["String", "Two Pointers"]
+},
+{
+  "_id": "cod_beg_string_002",
+  "module": "coding",
+  "level": "beginner",
+  "topic": "string",
+  "title": "Longest Common Prefix",
+  "question": "Write a function to find the longest common prefix string among an array of strings. If there is no common prefix, return an empty string \"\".",
+  "sample_tests": [
+    {
+      "input": "strs = [\"flower\",\"flow\",\"flight\"]",
+      "output": "\"fl\""
+    },
+    {
+      "input": "strs = [\"dog\",\"racecar\",\"car\"]",
+      "output": "\"\""
+    }
+  ],
+  "constraints": [
+    "1 <= strs.length <= 200",
+    "0 <= strs[i].length <= 200",
+    "strs[i] consists of only lowercase English letters if it is non-empty"
+  ],
+  "tags": ["String", "Trie"]
+},
+{
+  "_id": "cod_beg_string_003",
+  "module": "coding",
+  "level": "beginner",
+  "topic": "string",
+  "title": "Reverse String",
+  "question": "Write a function that reverses a string. The input string is given as an array of characters s. You must modify the input array in-place with O(1) extra memory.",
+  "sample_tests": [
+    {
+      "input": "s = [\"h\",\"e\",\"l\",\"l\",\"o\"]",
+      "output": "[\"o\",\"l\",\"l\",\"e\",\"h\"]"
+    },
+    {
+      "input": "s = [\"H\",\"a\",\"n\",\"n\",\"a\",\"h\"]",
+      "output": "[\"h\",\"a\",\"n\",\"n\",\"a\",\"H\"]"
+    }
+  ],
+  "constraints": [
+    "1 <= s.length <= 10^5",
+    "s[i] is a printable ASCII character"
+  ],
+  "tags": ["String", "Two Pointers"]
+},
+{
+  "_id": "cod_beg_string_004",
+  "module": "coding",
+  "level": "beginner",
+  "topic": "string",
+  "title": "Valid Anagram",
+  "question": "Given two strings s and t, return true if t is an anagram of s, and false otherwise. An anagram is formed by rearranging the letters of another word using all the original letters exactly once.",
+  "sample_tests": [
+    {
+      "input": "s = \"anagram\", t = \"nagaram\"",
+      "output": "true"
+    },
+    {
+      "input": "s = \"rat\", t = \"car\"",
+      "output": "false"
+    }
+  ],
+  "constraints": [
+    "1 <= s.length, t.length <= 5 * 10^4",
+    "s and t consist of lowercase English letters"
+  ],
+  "tags": ["String", "Hash Table", "Sorting"]
+},
+{
+  "_id": "cod_beg_hash_001",
+  "module": "coding",
+  "level": "beginner",
+  "topic": "hashing",
+  "title": "Contains Duplicate",
+  "question": "Given an integer array nums, return true if any value appears at least twice in the array, and return false if every element is distinct.",
+  "sample_tests": [
+    {
+      "input": "nums = [1,2,3,1]",
+      "output": "true"
+    },
+    {
+      "input": "nums = [1,2,3,4]",
+      "output": "false"
+    }
+  ],
+  "constraints": [
+    "1 <= nums.length <= 10^5",
+    "-10^9 <= nums[i] <= 10^9"
+  ],
+  "tags": ["Array", "Hash Table"]
+},
+{
+  "_id": "cod_beg_hash_002",
+  "module": "coding",
+  "level": "beginner",
+  "topic": "hashing",
+  "title": "Two Sum",
+  "question": "Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target. You may assume exactly one solution exists, and you may not use the same element twice.",
+  "sample_tests": [
+    {
+      "input": "nums = [2,7,11,15], target = 9",
+      "output": "[0,1]"
+    },
+    {
+      "input": "nums = [3,2,4], target = 6",
+      "output": "[1,2]"
+    }
+  ],
+  "constraints": [
+    "2 <= nums.length <= 10^4",
+    "-10^9 <= nums[i] <= 10^9",
+    "-10^9 <= target <= 10^9"
+  ],
+  "tags": ["Array", "Hash Table"]
+},
+{
+  "_id": "cod_beg_hash_003",
+  "module": "coding",
+  "level": "beginner",
+  "topic": "hashing",
+  "title": "Intersection of Two Arrays",
+  "question": "Given two integer arrays nums1 and nums2, return an array of their intersection. Each element in the result must be unique and you may return the result in any order.",
+  "sample_tests": [
+    {
+      "input": "nums1 = [1,2,2,1], nums2 = [2,2]",
+      "output": "[2]"
+    },
+    {
+      "input": "nums1 = [4,9,5], nums2 = [9,4,9,8,4]",
+      "output": "[9,4]"
+    }
+  ],
+  "constraints": [
+    "1 <= nums1.length, nums2.length <= 10^3",
+    "0 <= nums1[i], nums2[i] <= 10^3"
+  ],
+  "tags": ["Array", "Hash Table", "Set"]
+},
+{
+  "_id": "cod_beg_hash_004",
+  "module": "coding",
+  "level": "beginner",
+  "topic": "hashing",
+  "title": "First Unique Character in a String",
+  "question": "Given a string s, find the first non-repeating character in it and return its index. If it does not exist, return -1.",
+  "sample_tests": [
+    {
+      "input": "s = \"leetcode\"",
+      "output": "0"
+    },
+    {
+      "input": "s = \"loveleetcode\"",
+      "output": "2"
+    }
+  ],
+  "constraints": [
+    "1 <= s.length <= 10^5",
+    "s consists of only lowercase English letters"
+  ],
+  "tags": ["String", "Hash Table"]
+},
+{
+  "_id": "cod_beg_rec_001",
+  "module": "coding",
+  "level": "beginner",
+  "topic": "recursion",
+  "title": "Fibonacci Number",
+  "question": "The Fibonacci numbers are defined such that each number is the sum of the two preceding ones, starting from 0 and 1. Given n, return the nth Fibonacci number.",
+  "sample_tests": [
+    {
+      "input": "n = 2",
+      "output": "1"
+    },
+    {
+      "input": "n = 4",
+      "output": "3"
+    }
+  ],
+  "constraints": [
+    "0 <= n <= 30"
+  ],
+  "tags": ["Recursion", "Dynamic Programming"]
+},
+{
+  "_id": "cod_beg_rec_002",
+  "module": "coding",
+  "level": "beginner",
+  "topic": "recursion",
+  "title": "Power of Two",
+  "question": "Given an integer n, return true if it is a power of two. Otherwise, return false. An integer n is a power of two if there exists an integer x such that n = 2^x.",
+  "sample_tests": [
+    {
+      "input": "n = 1",
+      "output": "true"
+    },
+    {
+      "input": "n = 16",
+      "output": "true"
+    },
+    {
+      "input": "n = 3",
+      "output": "false"
+    }
+  ],
+  "constraints": [
+    "-2^31 <= n <= 2^31 - 1"
+  ],
+  "tags": ["Recursion", "Math", "Bit Manipulation"]
+},
+{
+  "_id": "cod_beg_rec_003",
+  "module": "coding",
+  "level": "beginner",
+  "topic": "recursion",
+  "title": "Climbing Stairs",
+  "question": "You are climbing a staircase. It takes n steps to reach the top. Each time you can either climb 1 or 2 steps. In how many distinct ways can you climb to the top?",
+  "sample_tests": [
+    {
+      "input": "n = 2",
+      "output": "2"
+    },
+    {
+      "input": "n = 3",
+      "output": "3"
+    }
+  ],
+  "constraints": [
+    "1 <= n <= 45"
+  ],
+  "tags": ["Recursion", "Dynamic Programming"]
+},
+{
+  "_id": "cod_beg_rec_004",
+  "module": "coding",
+  "level": "beginner",
+  "topic": "recursion",
+  "title": "Generate Parentheses",
+  "question": "Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses.",
+  "sample_tests": [
+    {
+      "input": "n = 3",
+      "output": "[\"((()))\",\"(()())\",\"(())()\",\"()(())\",\"()()()\"]"
+    },
+    {
+      "input": "n = 1",
+      "output": "[\"()\"]"
+    }
+  ],
+  "constraints": [
+    "1 <= n <= 8"
+  ],
+  "tags": ["Recursion", "Backtracking", "String"]
+},
+{
+  "_id": "cod_beg_ll_001",
+  "module": "coding",
+  "level": "beginner",
+  "topic": "linked_list",
+  "title": "Reverse Linked List",
+  "question": "Given the head of a singly linked list, reverse the list, and return the reversed list.",
+  "sample_tests": [
+    {
+      "input": "head = [1,2,3,4,5]",
+      "output": "[5,4,3,2,1]"
+    },
+    {
+      "input": "head = [1,2]",
+      "output": "[2,1]"
+    }
+  ],
+  "constraints": [
+    "The number of nodes in the list is in the range [0, 5000]",
+    "-5000 <= Node.val <= 5000"
+  ],
+  "tags": ["Linked List", "Recursion"]
+},
+{
+  "_id": "cod_beg_ll_002",
+  "module": "coding",
+  "level": "beginner",
+  "topic": "linked_list",
+  "title": "Merge Two Sorted Lists",
+  "question": "You are given the heads of two sorted linked lists. Merge the two lists into one sorted list and return it.",
+  "sample_tests": [
+    {
+      "input": "list1 = [1,2,4], list2 = [1,3,4]",
+      "output": "[1,1,2,3,4,4]"
+    },
+    {
+      "input": "list1 = [], list2 = []",
+      "output": "[]"
+    }
+  ],
+  "constraints": [
+    "The number of nodes in both lists is in the range [0, 50]",
+    "-100 <= Node.val <= 100",
+    "Both list1 and list2 are sorted in non-decreasing order"
+  ],
+  "tags": ["Linked List", "Recursion"]
+},
+{
+  "_id": "cod_beg_ll_003",
+  "module": "coding",
+  "level": "beginner",
+  "topic": "linked_list",
+  "title": "Linked List Cycle",
+  "question": "Given head, the head of a linked list, determine if the linked list has a cycle in it. Return true if there is a cycle, otherwise return false.",
+  "sample_tests": [
+    {
+      "input": "head = [3,2,0,-4], pos = 1",
+      "output": "true"
+    },
+    {
+      "input": "head = [1,2], pos = -1",
+      "output": "false"
+    }
+  ],
+  "constraints": [
+    "The number of nodes in the list is in the range [0, 10^4]",
+    "-10^5 <= Node.val <= 10^5",
+    "pos is -1 or a valid index in the linked list"
+  ],
+  "tags": ["Linked List", "Two Pointers"]
+},
+{
+  "_id": "cod_beg_ll_004",
+  "module": "coding",
+  "level": "beginner",
+  "topic": "linked_list",
+  "title": "Middle of the Linked List",
+  "question": "Given the head of a singly linked list, return the middle node of the linked list. If there are two middle nodes, return the second middle node.",
+  "sample_tests": [
+    {
+      "input": "head = [1,2,3,4,5]",
+      "output": "[3,4,5]"
+    },
+    {
+      "input": "head = [1,2,3,4,5,6]",
+      "output": "[4,5,6]"
+    }
+  ],
+  "constraints": [
+    "The number of nodes in the list is in the range [1, 100]",
+    "1 <= Node.val <= 100"
+  ],
+  "tags": ["Linked List", "Two Pointers"]
+},
+{
+  "_id": "cod_beg_stack_001",
+  "module": "coding",
+  "level": "beginner",
+  "topic": "stack",
+  "title": "Valid Parentheses",
+  "question": "Given a string s containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid. A string is valid if open brackets are closed by the same type of brackets and in the correct order.",
+  "sample_tests": [
+    {
+      "input": "s = \"()\"",
+      "output": "true"
+    },
+    {
+      "input": "s = \"()[]{}\"",
+      "output": "true"
+    },
+    {
+      "input": "s = \"(]\"",
+      "output": "false"
+    }
+  ],
+  "constraints": [
+    "1 <= s.length <= 10^4",
+    "s consists of parentheses only '()[]{}'"
+  ],
+  "tags": ["String", "Stack"]
+},
+{
+  "_id": "cod_beg_stack_002",
+  "module": "coding",
+  "level": "beginner",
+  "topic": "stack",
+  "title": "Min Stack",
+  "question": "Design a stack that supports push, pop, top, and retrieving the minimum element in constant time.",
+  "sample_tests": [
+    {
+      "input": "operations = [\"MinStack\",\"push\",\"push\",\"push\",\"getMin\",\"pop\",\"top\",\"getMin\"], values = [[],[-2],[0],[-3],[],[],[],[]]",
+      "output": "[null,null,null,null,-3,null,0,-2]"
+    }
+  ],
+  "constraints": [
+    "-2^31 <= val <= 2^31 - 1",
+    "Methods pop, top and getMin operations will always be called on non-empty stacks",
+    "At most 3 * 10^4 calls will be made"
+  ],
+  "tags": ["Stack", "Design"]
+},
+{
+  "_id": "cod_beg_stack_003",
+  "module": "coding",
+  "level": "beginner",
+  "topic": "stack",
+  "title": "Next Greater Element I",
+  "question": "You are given two arrays nums1 and nums2. For each element in nums1, find the next greater element in nums2. If it does not exist, return -1 for that number.",
+  "sample_tests": [
+    {
+      "input": "nums1 = [4,1,2], nums2 = [1,3,4,2]",
+      "output": "[-1,3,-1]"
+    },
+    {
+      "input": "nums1 = [2,4], nums2 = [1,2,3,4]",
+      "output": "[3,-1]"
+    }
+  ],
+  "constraints": [
+    "1 <= nums1.length <= nums2.length <= 1000",
+    "0 <= nums1[i], nums2[i] <= 10^4",
+    "All integers in nums1 and nums2 are unique"
+  ],
+  "tags": ["Stack", "Array", "Hash Table"]
+},
+{
+  "_id": "cod_beg_stack_004",
+  "module": "coding",
+  "level": "beginner",
+  "topic": "stack",
+  "title": "Daily Temperatures",
+  "question": "Given an array of daily temperatures, return an array answer such that answer[i] is the number of days you have to wait after the ith day to get a warmer temperature. If there is no future day, keep 0.",
+  "sample_tests": [
+    {
+      "input": "temperatures = [73,74,75,71,69,72,76,73]",
+      "output": "[1,1,4,2,1,1,0,0]"
+    },
+    {
+      "input": "temperatures = [30,40,50,60]",
+      "output": "[1,1,1,0]"
+    }
+  ],
+  "constraints": [
+    "1 <= temperatures.length <= 10^5",
+    "30 <= temperatures[i] <= 100"
+  ],
+  "tags": ["Stack", "Array", "Monotonic Stack"]
+},
+{
+  "_id": "cod_beg_queue_001",
+  "module": "coding",
+  "level": "beginner",
+  "topic": "queue",
+  "title": "Implement Queue using Stacks",
+  "question": "Implement a first in first out (FIFO) queue using only two stacks. The implemented queue should support push, pop, peek, and empty operations.",
+  "sample_tests": [
+    {
+      "input": "operations = [\"MyQueue\",\"push\",\"push\",\"peek\",\"pop\",\"empty\"], values = [[],[1],[2],[],[],[]]",
+      "output": "[null,null,null,1,1,false]"
+    }
+  ],
+  "constraints": [
+    "1 <= x <= 9",
+    "At most 100 calls will be made to push, pop, peek, and empty",
+    "All calls to pop and peek are valid"
+  ],
+  "tags": ["Stack", "Queue", "Design"]
+},
+{
+  "_id": "cod_beg_queue_002",
+  "module": "coding",
+  "level": "beginner",
+  "topic": "queue",
+  "title": "Number of Recent Calls",
+  "question": "You have a RecentCounter class which counts the number of recent requests within a certain time frame. Implement the RecentCounter class with a method ping(t) that returns the number of requests that have happened in the past 3000 milliseconds (including the current one).",
+  "sample_tests": [
+    {
+      "input": "operations = [\"RecentCounter\",\"ping\",\"ping\",\"ping\",\"ping\"], values = [[],[1],[100],[3001],[3002]]",
+      "output": "[null,1,2,3,3]"
+    }
+  ],
+  "constraints": [
+    "1 <= t <= 10^9",
+    "Each test case will call ping with strictly increasing values of t",
+    "At most 10^4 calls will be made"
+  ],
+  "tags": ["Queue", "Design", "Sliding Window"]
+},
+{
+  "_id": "cod_beg_queue_003",
+  "module": "coding",
+  "level": "beginner",
+  "topic": "queue",
+  "title": "Design Circular Queue",
+  "question": "Design your implementation of a circular queue. The circular queue should support operations like enQueue, deQueue, Front, Rear, isEmpty, and isFull.",
+  "sample_tests": [
+    {
+      "input": "operations = [\"MyCircularQueue\",\"enQueue\",\"enQueue\",\"enQueue\",\"enQueue\",\"Rear\",\"isFull\",\"deQueue\",\"enQueue\",\"Rear\"], values = [[3],[1],[2],[3],[4],[],[],[],[4],[]]",
+      "output": "[null,true,true,true,false,3,true,true,true,4]"
+    }
+  ],
+  "constraints": [
+    "1 <= k <= 1000",
+    "0 <= value <= 1000",
+    "At most 3000 calls will be made"
+  ],
+  "tags": ["Queue", "Design"]
+},
+{
+  "_id": "cod_beg_queue_004",
+  "module": "coding",
+  "level": "beginner",
+  "topic": "queue",
+  "title": "Sliding Window Maximum",
+  "question": "Given an array nums and a sliding window of size k, return the maximum value in each window as it moves from left to right.",
+  "sample_tests": [
+    {
+      "input": "nums = [1,3,-1,-3,5,3,6,7], k = 3",
+      "output": "[3,3,5,5,6,7]"
+    },
+    {
+      "input": "nums = [1], k = 1",
+      "output": "[1]"
+    }
+  ],
+  "constraints": [
+    "1 <= nums.length <= 10^5",
+    "-10^4 <= nums[i] <= 10^4",
+    "1 <= k <= nums.length"
+  ],
+  "tags": ["Queue", "Sliding Window", "Heap", "Monotonic Queue"]
+},
+{
+  "_id": "cod_beg_tree_001",
+  "module": "coding",
+  "level": "beginner",
+  "topic": "trees",
+  "title": "Maximum Depth of Binary Tree",
+  "question": "Given the root of a binary tree, return its maximum depth. The maximum depth is the number of nodes along the longest path from the root node down to the farthest leaf node.",
+  "sample_tests": [
+    {
+      "input": "root = [3,9,20,null,null,15,7]",
+      "output": "3"
+    },
+    {
+      "input": "root = [1,null,2]",
+      "output": "2"
+    }
+  ],
+  "constraints": [
+    "The number of nodes in the tree is in the range [0, 10^4]",
+    "-100 <= Node.val <= 100"
+  ],
+  "tags": ["Tree", "Depth-First Search", "Breadth-First Search"]
+},
+{
+  "_id": "cod_beg_tree_002",
+  "module": "coding",
+  "level": "beginner",
+  "topic": "trees",
+  "title": "Same Tree",
+  "question": "Given the roots of two binary trees p and q, write a function to check if they are the same or not. Two binary trees are considered the same if they are structurally identical and the nodes have the same value.",
+  "sample_tests": [
+    {
+      "input": "p = [1,2,3], q = [1,2,3]",
+      "output": "true"
+    },
+    {
+      "input": "p = [1,2], q = [1,null,2]",
+      "output": "false"
+    }
+  ],
+  "constraints": [
+    "The number of nodes in both trees is in the range [0, 100]",
+    "-10^4 <= Node.val <= 10^4"
+  ],
+  "tags": ["Tree", "Depth-First Search"]
+},
+{
+  "_id": "cod_beg_tree_003",
+  "module": "coding",
+  "level": "beginner",
+  "topic": "trees",
+  "title": "Invert Binary Tree",
+  "question": "Given the root of a binary tree, invert the tree, and return its root. Inverting a tree means swapping the left and right children of all nodes.",
+  "sample_tests": [
+    {
+      "input": "root = [4,2,7,1,3,6,9]",
+      "output": "[4,7,2,9,6,3,1]"
+    },
+    {
+      "input": "root = [2,1,3]",
+      "output": "[2,3,1]"
+    }
+  ],
+  "constraints": [
+    "The number of nodes in the tree is in the range [0, 100]",
+    "-100 <= Node.val <= 100"
+  ],
+  "tags": ["Tree", "Depth-First Search", "Breadth-First Search"]
+},
+{
+  "_id": "cod_beg_tree_004",
+  "module": "coding",
+  "level": "beginner",
+  "topic": "trees",
+  "title": "Binary Tree Level Order Traversal",
+  "question": "Given the root of a binary tree, return the level order traversal of its nodes' values (i.e., from left to right, level by level).",
+  "sample_tests": [
+    {
+      "input": "root = [3,9,20,null,null,15,7]",
+      "output": "[[3],[9,20],[15,7]]"
+    },
+    {
+      "input": "root = [1]",
+      "output": "[[1]]"
+    }
+  ],
+  "constraints": [
+    "The number of nodes in the tree is in the range [0, 2000]",
+    "-1000 <= Node.val <= 1000"
+  ],
+  "tags": ["Tree", "Breadth-First Search"]
+},
+{
+  "_id": "cod_beg_bs_001",
+  "module": "coding",
+  "level": "beginner",
+  "topic": "binary_search",
+  "title": "Binary Search",
+  "question": "Given a sorted array of integers nums and an integer target, return the index of target if it exists in the array. Otherwise, return -1.",
+  "sample_tests": [
+    {
+      "input": "nums = [-1,0,3,5,9,12], target = 9",
+      "output": "4"
+    },
+    {
+      "input": "nums = [-1,0,3,5,9,12], target = 2",
+      "output": "-1"
+    }
+  ],
+  "constraints": [
+    "1 <= nums.length <= 10^4",
+    "-10^4 <= nums[i], target <= 10^4",
+    "All integers in nums are unique",
+    "nums is sorted in ascending order"
+  ],
+  "tags": ["Array", "Binary Search"]
+},
+{
+  "_id": "cod_beg_bs_002",
+  "module": "coding",
+  "level": "beginner",
+  "topic": "binary_search",
+  "title": "Search Insert Position",
+  "question": "Given a sorted array of distinct integers and a target value, return the index if the target is found. If not, return the index where it would be inserted in order.",
+  "sample_tests": [
+    {
+      "input": "nums = [1,3,5,6], target = 5",
+      "output": "2"
+    },
+    {
+      "input": "nums = [1,3,5,6], target = 2",
+      "output": "1"
+    }
+  ],
+  "constraints": [
+    "1 <= nums.length <= 10^4",
+    "-10^4 <= nums[i], target <= 10^4",
+    "nums contains distinct values sorted in ascending order"
+  ],
+  "tags": ["Array", "Binary Search"]
+},
+{
+  "_id": "cod_beg_bs_003",
+  "module": "coding",
+  "level": "beginner",
+  "topic": "binary_search",
+  "title": "First Bad Version",
+  "question": "You are given an integer n and an API isBadVersion(version). Return the first bad version among n versions. All versions after a bad version are also bad.",
+  "sample_tests": [
+    {
+      "input": "n = 5, bad = 4",
+      "output": "4"
+    }
+  ],
+  "constraints": [
+    "1 <= bad <= n <= 2^31 - 1"
+  ],
+  "tags": ["Binary Search", "Interactive"]
+},
+{
+  "_id": "cod_beg_bs_004",
+  "module": "coding",
+  "level": "beginner",
+  "topic": "binary_search",
+  "title": "Find Peak Element",
+  "question": "A peak element is an element that is strictly greater than its neighbors. Given an integer array nums, find a peak element and return its index. If the array contains multiple peaks, return the index to any of the peaks.",
+  "sample_tests": [
+    {
+      "input": "nums = [1,2,3,1]",
+      "output": "2"
+    },
+    {
+      "input": "nums = [1,2,1,3,5,6,4]",
+      "output": "5"
+    }
+  ],
+  "constraints": [
+    "1 <= nums.length <= 1000",
+    "-2^31 <= nums[i] <= 2^31 - 1",
+    "nums[i] != nums[i+1]"
+  ],
+  "tags": ["Array", "Binary Search"]
+},
+{
+  "_id": "cod_beg_dp_001",
+  "module": "coding",
+  "level": "beginner",
+  "topic": "dynamic_programming",
+  "title": "Climbing Stairs",
+  "question": "You are climbing a staircase. It takes n steps to reach the top. Each time you can climb either 1 or 2 steps. In how many distinct ways can you climb to the top?",
+  "sample_tests": [
+    {
+      "input": "n = 2",
+      "output": "2"
+    },
+    {
+      "input": "n = 3",
+      "output": "3"
+    }
+  ],
+  "constraints": [
+    "1 <= n <= 45"
+  ],
+  "tags": ["Dynamic Programming"]
+},
+{
+  "_id": "cod_beg_dp_002",
+  "module": "coding",
+  "level": "beginner",
+  "topic": "dynamic_programming",
+  "title": "House Robber",
+  "question": "You are a professional robber planning to rob houses along a street. Each house has a certain amount of money stashed, but you cannot rob two adjacent houses. Return the maximum amount of money you can rob without alerting the police.",
+  "sample_tests": [
+    {
+      "input": "nums = [1,2,3,1]",
+      "output": "4"
+    },
+    {
+      "input": "nums = [2,7,9,3,1]",
+      "output": "12"
+    }
+  ],
+  "constraints": [
+    "1 <= nums.length <= 100",
+    "0 <= nums[i] <= 400"
+  ],
+  "tags": ["Array", "Dynamic Programming"]
+},
+{
+  "_id": "cod_beg_dp_003",
+  "module": "coding",
+  "level": "beginner",
+  "topic": "dynamic_programming",
+  "title": "Coin Change",
+  "question": "You are given an integer array coins representing coins of different denominations and an integer amount. Return the fewest number of coins needed to make up that amount. If it is not possible, return -1.",
+  "sample_tests": [
+    {
+      "input": "coins = [1,2,5], amount = 11",
+      "output": "3"
+    },
+    {
+      "input": "coins = [2], amount = 3",
+      "output": "-1"
+    }
+  ],
+  "constraints": [
+    "1 <= coins.length <= 12",
+    "1 <= coins[i] <= 2^31 - 1",
+    "0 <= amount <= 10^4"
+  ],
+  "tags": ["Dynamic Programming", "Breadth-First Search"]
+},
+{
+  "_id": "cod_beg_dp_004",
+  "module": "coding",
+  "level": "beginner",
+  "topic": "dynamic_programming",
+  "title": "Longest Increasing Subsequence",
+  "question": "Given an integer array nums, return the length of the longest strictly increasing subsequence.",
+  "sample_tests": [
+    {
+      "input": "nums = [10,9,2,5,3,7,101,18]",
+      "output": "4"
+    },
+    {
+      "input": "nums = [0,1,0,3,2,3]",
+      "output": "4"
+    }
+  ],
+  "constraints": [
+    "1 <= nums.length <= 2500",
+    "-10^4 <= nums[i] <= 10^4"
+  ],
+  "tags": ["Array", "Dynamic Programming", "Binary Search"]
+},
+{
+  "_id": "cod_int_array_001",
+  "module": "coding",
+  "level": "intermediate",
+  "topic": "array",
+  "title": "Product of Array Except Self",
+  "question": "Given an integer array nums, return an array answer such that answer[i] is equal to the product of all the elements of nums except nums[i]. Solve it without using division and in O(n) time.",
+  "sample_tests": [
+    {
+      "input": "nums = [1,2,3,4]",
+      "output": "[24,12,8,6]"
+    },
+    {
+      "input": "nums = [-1,1,0,-3,3]",
+      "output": "[0,0,9,0,0]"
+    }
+  ],
+  "constraints": [
+    "2 <= nums.length <= 10^5",
+    "-30 <= nums[i] <= 30",
+    "The product of any prefix or suffix fits in 32-bit integer"
+  ],
+  "tags": ["Array", "Prefix Sum"]
+},
+{
+  "_id": "cod_int_array_002",
+  "module": "coding",
+  "level": "intermediate",
+  "topic": "array",
+  "title": "Container With Most Water",
+  "question": "Given n non-negative integers representing heights, find two lines that together with the x-axis form a container such that the container contains the most water.",
+  "sample_tests": [
+    {
+      "input": "height = [1,8,6,2,5,4,8,3,7]",
+      "output": "49"
+    },
+    {
+      "input": "height = [1,1]",
+      "output": "1"
+    }
+  ],
+  "constraints": [
+    "2 <= height.length <= 10^5",
+    "0 <= height[i] <= 10^4"
+  ],
+  "tags": ["Array", "Two Pointers"]
+},
+{
+  "_id": "cod_int_array_003",
+  "module": "coding",
+  "level": "intermediate",
+  "topic": "array",
+  "title": "Subarray Sum Equals K",
+  "question": "Given an array of integers nums and an integer k, return the total number of continuous subarrays whose sum equals k.",
+  "sample_tests": [
+    {
+      "input": "nums = [1,1,1], k = 2",
+      "output": "2"
+    },
+    {
+      "input": "nums = [1,2,3], k = 3",
+      "output": "2"
+    }
+  ],
+  "constraints": [
+    "1 <= nums.length <= 2 * 10^4",
+    "-1000 <= nums[i] <= 1000",
+    "-10^7 <= k <= 10^7"
+  ],
+  "tags": ["Array", "Hash Table", "Prefix Sum"]
+},
+{
+  "_id": "cod_int_array_004",
+  "module": "coding",
+  "level": "intermediate",
+  "topic": "array",
+  "title": "Find All Duplicates in an Array",
+  "question": "Given an integer array nums where each integer is between 1 and n, return all the integers that appear twice.",
+  "sample_tests": [
+    {
+      "input": "nums = [4,3,2,7,8,2,3,1]",
+      "output": "[2,3]"
+    },
+    {
+      "input": "nums = [1,1,2]",
+      "output": "[1]"
+    }
+  ],
+  "constraints": [
+    "1 <= nums.length <= 10^5",
+    "1 <= nums[i] <= n"
+  ],
+  "tags": ["Array"]
+},
+{
+  "_id": "cod_int_string_001",
+  "module": "coding",
+  "level": "intermediate",
+  "topic": "string",
+  "title": "Longest Substring Without Repeating Characters",
+  "question": "Given a string s, find the length of the longest substring without repeating characters.",
+  "sample_tests": [
+    {
+      "input": "s = \"abcabcbb\"",
+      "output": "3"
+    },
+    {
+      "input": "s = \"bbbbb\"",
+      "output": "1"
+    }
+  ],
+  "constraints": [
+    "0 <= s.length <= 5 * 10^4",
+    "s consists of English letters, digits, symbols, and spaces"
+  ],
+  "tags": ["String", "Sliding Window", "Hash Table"]
+},
+{
+  "_id": "cod_int_string_002",
+  "module": "coding",
+  "level": "intermediate",
+  "topic": "string",
+  "title": "Group Anagrams",
+  "question": "Given an array of strings, group the anagrams together. You can return the answer in any order.",
+  "sample_tests": [
+    {
+      "input": "strs = [\"eat\",\"tea\",\"tan\",\"ate\",\"nat\",\"bat\"]",
+      "output": "[[\"eat\",\"tea\",\"ate\"],[\"tan\",\"nat\"],[\"bat\"]]"
+    },
+    {
+      "input": "strs = [\"\"]",
+      "output": "[[\"\"]]"
+    }
+  ],
+  "constraints": [
+    "1 <= strs.length <= 10^4",
+    "0 <= strs[i].length <= 100"
+  ],
+  "tags": ["String", "Hash Table", "Sorting"]
+},
+{
+  "_id": "cod_int_string_003",
+  "module": "coding",
+  "level": "intermediate",
+  "topic": "string",
+  "title": "String to Integer (atoi)",
+  "question": "Implement the myAtoi(string s) function, which converts a string to a 32-bit signed integer following specific rules like ignoring whitespace, handling signs, and overflow.",
+  "sample_tests": [
+    {
+      "input": "s = \"42\"",
+      "output": "42"
+    },
+    {
+      "input": "s = \"   -42\"",
+      "output": "-42"
+    }
+  ],
+  "constraints": [
+    "0 <= s.length <= 200",
+    "s consists of English letters, digits, spaces, '+', '-', and '.'"
+  ],
+  "tags": ["String"]
+},
+{
+  "_id": "cod_int_string_004",
+  "module": "coding",
+  "level": "intermediate",
+  "topic": "string",
+  "title": "Longest Palindromic Substring",
+  "question": "Given a string s, return the longest palindromic substring in s.",
+  "sample_tests": [
+    {
+      "input": "s = \"babad\"",
+      "output": "\"bab\""
+    },
+    {
+      "input": "s = \"cbbd\"",
+      "output": "\"bb\""
+    }
+  ],
+  "constraints": [
+    "1 <= s.length <= 1000",
+    "s consist of only digits and English letters"
+  ],
+  "tags": ["String", "Dynamic Programming"]
+},
+{
+  "_id": "cod_int_hash_001",
+  "module": "coding",
+  "level": "intermediate",
+  "topic": "hashing",
+  "title": "Top K Frequent Elements",
+  "question": "Given an integer array nums and an integer k, return the k most frequent elements.",
+  "sample_tests": [
+    {
+      "input": "nums = [1,1,1,2,2,3], k = 2",
+      "output": "[1,2]"
+    },
+    {
+      "input": "nums = [1], k = 1",
+      "output": "[1]"
+    }
+  ],
+  "constraints": [
+    "1 <= nums.length <= 10^5",
+    "k is in the range [1, number of unique elements]"
+  ],
+  "tags": ["Array", "Hash Table", "Heap"]
+},
+{
+  "_id": "cod_int_hash_002",
+  "module": "coding",
+  "level": "intermediate",
+  "topic": "hashing",
+  "title": "Longest Consecutive Sequence",
+  "question": "Given an unsorted array of integers nums, return the length of the longest consecutive elements sequence.",
+  "sample_tests": [
+    {
+      "input": "nums = [100,4,200,1,3,2]",
+      "output": "4"
+    },
+    {
+      "input": "nums = [0,3,7,2,5,8,4,6,0,1]",
+      "output": "9"
+    }
+  ],
+  "constraints": [
+    "0 <= nums.length <= 10^5",
+    "-10^9 <= nums[i] <= 10^9"
+  ],
+  "tags": ["Array", "Hash Table"]
+},
+{
+  "_id": "cod_int_hash_003",
+  "module": "coding",
+  "level": "intermediate",
+  "topic": "hashing",
+  "title": "Subarray Sum Equals K",
+  "question": "Given an array of integers nums and an integer k, return the total number of continuous subarrays whose sum equals k.",
+  "sample_tests": [
+    {
+      "input": "nums = [1,1,1], k = 2",
+      "output": "2"
+    },
+    {
+      "input": "nums = [1,2,3], k = 3",
+      "output": "2"
+    }
+  ],
+  "constraints": [
+    "1 <= nums.length <= 2 * 10^4",
+    "-1000 <= nums[i] <= 1000",
+    "-10^7 <= k <= 10^7"
+  ],
+  "tags": ["Array", "Hash Table", "Prefix Sum"]
+},
+{
+  "_id": "cod_int_hash_004",
+  "module": "coding",
+  "level": "intermediate",
+  "topic": "hashing",
+  "title": "Isomorphic Strings",
+  "question": "Given two strings s and t, determine if they are isomorphic (characters in s can be replaced to get t).",
+  "sample_tests": [
+    {
+      "input": "s = \"egg\", t = \"add\"",
+      "output": "true"
+    },
+    {
+      "input": "s = \"foo\", t = \"bar\"",
+      "output": "false"
+    }
+  ],
+  "constraints": [
+    "1 <= s.length <= 5 * 10^4",
+    "t.length == s.length"
+  ],
+  "tags": ["Hash Table", "String"]
+},
+{
+  "_id": "cod_int_rec_001",
+  "module": "coding",
+  "level": "intermediate",
+  "topic": "recursion",
+  "title": "Permutations",
+  "question": "Given an array nums of distinct integers, return all possible permutations.",
+  "sample_tests": [
+    {
+      "input": "nums = [1,2,3]",
+      "output": "[[1,2,3],[1,3,2],[2,1,3],[2,3,1],[3,1,2],[3,2,1]]"
+    },
+    {
+      "input": "nums = [0,1]",
+      "output": "[[0,1],[1,0]]"
+    }
+  ],
+  "constraints": [
+    "1 <= nums.length <= 6",
+    "-10 <= nums[i] <= 10"
+  ],
+  "tags": ["Backtracking"]
+},
+{
+  "_id": "cod_int_rec_002",
+  "module": "coding",
+  "level": "intermediate",
+  "topic": "recursion",
+  "title": "Subsets",
+  "question": "Given an integer array nums, return all possible subsets (the power set).",
+  "sample_tests": [
+    {
+      "input": "nums = [1,2,3]",
+      "output": "[[],[1],[2],[3],[1,2],[1,3],[2,3],[1,2,3]]"
+    },
+    {
+      "input": "nums = [0]",
+      "output": "[[],[0]]"
+    }
+  ],
+  "constraints": [
+    "1 <= nums.length <= 10",
+    "-10 <= nums[i] <= 10"
+  ],
+  "tags": ["Backtracking"]
+},
+{
+  "_id": "cod_int_rec_003",
+  "module": "coding",
+  "level": "intermediate",
+  "topic": "recursion",
+  "title": "Combination Sum",
+  "question": "Given an array of distinct integers candidates and a target integer, return all unique combinations where numbers sum to target. Same number can be chosen multiple times.",
+  "sample_tests": [
+    {
+      "input": "candidates = [2,3,6,7], target = 7",
+      "output": "[[2,2,3],[7]]"
+    },
+    {
+      "input": "candidates = [2,3,5], target = 8",
+      "output": "[[2,2,2,2],[2,3,3],[3,5]]"
+    }
+  ],
+  "constraints": [
+    "1 <= candidates.length <= 30",
+    "1 <= candidates[i] <= 200"
+  ],
+  "tags": ["Backtracking"]
+},
+{
+  "_id": "cod_int_rec_004",
+  "module": "coding",
+  "level": "intermediate",
+  "topic": "recursion",
+  "title": "Letter Combinations of Phone Number",
+  "question": "Given a string containing digits from 2-9, return all possible letter combinations that the number could represent.",
+  "sample_tests": [
+    {
+      "input": "digits = \"23\"",
+      "output": "[\"ad\",\"ae\",\"af\",\"bd\",\"be\",\"bf\",\"cd\",\"ce\",\"cf\"]"
+    },
+    {
+      "input": "digits = \"\"",
+      "output": "[]"
+    }
+  ],
+  "constraints": [
+    "0 <= digits.length <= 4",
+    "digits[i] is a digit from 2-9"
+  ],
+  "tags": ["Backtracking", "String"]
+},
+{
+  "_id": "cod_int_ll_001",
+  "module": "coding",
+  "level": "intermediate",
+  "topic": "linked_list",
+  "title": "Add Two Numbers",
+  "question": "You are given two non-empty linked lists representing two non-negative integers. Add the two numbers and return the sum as a linked list.",
+  "sample_tests": [
+    {
+      "input": "l1 = [2,4,3], l2 = [5,6,4]",
+      "output": "[7,0,8]"
+    },
+    {
+      "input": "l1 = [0], l2 = [0]",
+      "output": "[0]"
+    }
+  ],
+  "constraints": [
+    "The number of nodes in each list is in the range [1, 100]",
+    "0 <= Node.val <= 9"
+  ],
+  "tags": ["Linked List", "Math"]
+},
+{
+  "_id": "cod_int_ll_002",
+  "module": "coding",
+  "level": "intermediate",
+  "topic": "linked_list",
+  "title": "Remove Nth Node From End",
+  "question": "Given the head of a linked list, remove the nth node from the end and return its head.",
+  "sample_tests": [
+    {
+      "input": "head = [1,2,3,4,5], n = 2",
+      "output": "[1,2,3,5]"
+    },
+    {
+      "input": "head = [1], n = 1",
+      "output": "[]"
+    }
+  ],
+  "constraints": [
+    "The number of nodes in the list is sz",
+    "1 <= sz <= 30",
+    "1 <= n <= sz"
+  ],
+  "tags": ["Linked List", "Two Pointers"]
+},
+{
+  "_id": "cod_int_ll_003",
+  "module": "coding",
+  "level": "intermediate",
+  "topic": "linked_list",
+  "title": "Reorder List",
+  "question": "Reorder a linked list such that L0 → Ln → L1 → Ln-1 → L2 → Ln-2 → …",
+  "sample_tests": [
+    {
+      "input": "head = [1,2,3,4]",
+      "output": "[1,4,2,3]"
+    },
+    {
+      "input": "head = [1,2,3,4,5]",
+      "output": "[1,5,2,4,3]"
+    }
+  ],
+  "constraints": [
+    "1 <= number of nodes <= 5 * 10^4",
+    "1 <= Node.val <= 1000"
+  ],
+  "tags": ["Linked List"]
+},
+{
+  "_id": "cod_int_ll_004",
+  "module": "coding",
+  "level": "intermediate",
+  "topic": "linked_list",
+  "title": "Intersection of Two Linked Lists",
+  "question": "Given the heads of two linked lists, return the node at which the two lists intersect, or null if they do not intersect.",
+  "sample_tests": [
+    {
+      "input": "listA = [4,1,8,4,5], listB = [5,6,1,8,4,5]",
+      "output": "8"
+    },
+    {
+      "input": "listA = [1,2,3], listB = [4,5]",
+      "output": "null"
+    }
+  ],
+  "constraints": [
+    "The number of nodes of listA is m",
+    "The number of nodes of listB is n"
+  ],
+  "tags": ["Linked List", "Two Pointers"]
+},
+{
+  "_id": "cod_int_stack_001",
+  "module": "coding",
+  "level": "intermediate",
+  "topic": "stack",
+  "title": "Evaluate Reverse Polish Notation",
+  "question": "Evaluate the value of an arithmetic expression in Reverse Polish Notation.",
+  "sample_tests": [
+    {
+      "input": "tokens = [\"2\",\"1\",\"+\",\"3\",\"*\"]",
+      "output": "9"
+    },
+    {
+      "input": "tokens = [\"4\",\"13\",\"5\",\"/\",\"+\"]",
+      "output": "6"
+    }
+  ],
+  "constraints": [
+    "1 <= tokens.length <= 10^4",
+    "tokens[i] is either an operator or an integer"
+  ],
+  "tags": ["Stack"]
+},
+{
+  "_id": "cod_int_stack_002",
+  "module": "coding",
+  "level": "intermediate",
+  "topic": "stack",
+  "title": "Largest Rectangle in Histogram",
+  "question": "Given an array of integers heights representing histogram bar heights, return the area of the largest rectangle.",
+  "sample_tests": [
+    {
+      "input": "heights = [2,1,5,6,2,3]",
+      "output": "10"
+    },
+    {
+      "input": "heights = [2,4]",
+      "output": "4"
+    }
+  ],
+  "constraints": [
+    "1 <= heights.length <= 10^5",
+    "0 <= heights[i] <= 10^4"
+  ],
+  "tags": ["Stack", "Monotonic Stack"]
+},
+{
+  "_id": "cod_int_stack_003",
+  "module": "coding",
+  "level": "intermediate",
+  "topic": "stack",
+  "title": "Remove K Digits",
+  "question": "Given a string num and integer k, remove k digits to make the smallest possible number.",
+  "sample_tests": [
+    {
+      "input": "num = \"1432219\", k = 3",
+      "output": "\"1219\""
+    },
+    {
+      "input": "num = \"10200\", k = 1",
+      "output": "\"200\""
+    }
+  ],
+  "constraints": [
+    "1 <= k <= num.length <= 10^5",
+    "num consists of digits only"
+  ],
+  "tags": ["Stack", "Greedy"]
+},
+{
+  "_id": "cod_int_stack_004",
+  "module": "coding",
+  "level": "intermediate",
+  "topic": "stack",
+  "title": "Basic Calculator",
+  "question": "Given a string expression s, evaluate the expression containing +, -, parentheses and spaces.",
+  "sample_tests": [
+    {
+      "input": "s = \"1 + 1\"",
+      "output": "2"
+    },
+    {
+      "input": "s = \"(1+(4+5+2)-3)+(6+8)\"",
+      "output": "23"
+    }
+  ],
+  "constraints": [
+    "1 <= s.length <= 3 * 10^5",
+    "s consists of digits, '+', '-', '(', ')', and spaces"
+  ],
+  "tags": ["Stack"]
+},
+{
+  "_id": "cod_int_queue_001",
+  "module": "coding",
+  "level": "intermediate",
+  "topic": "queue",
+  "title": "Sliding Window Maximum",
+  "question": "Given an array nums and an integer k, return the maximum value in each sliding window of size k.",
+  "sample_tests": [
+    {
+      "input": "nums = [1,3,-1,-3,5,3,6,7], k = 3",
+      "output": "[3,3,5,5,6,7]"
+    },
+    {
+      "input": "nums = [1], k = 1",
+      "output": "[1]"
+    }
+  ],
+  "constraints": [
+    "1 <= nums.length <= 10^5",
+    "-10^4 <= nums[i] <= 10^4",
+    "1 <= k <= nums.length"
+  ],
+  "tags": ["Queue", "Deque", "Sliding Window"]
+},
+{
+  "_id": "cod_int_queue_002",
+  "module": "coding",
+  "level": "intermediate",
+  "topic": "queue",
+  "title": "Task Scheduler",
+  "question": "Given a list of tasks and a cooling interval n, return the least number of time units needed to finish all tasks.",
+  "sample_tests": [
+    {
+      "input": "tasks = [\"A\",\"A\",\"A\",\"B\",\"B\",\"B\"], n = 2",
+      "output": "8"
+    },
+    {
+      "input": "tasks = [\"A\",\"A\",\"A\",\"B\",\"B\",\"B\"], n = 0",
+      "output": "6"
+    }
+  ],
+  "constraints": [
+    "1 <= tasks.length <= 10^4",
+    "tasks[i] is an uppercase English letter"
+  ],
+  "tags": ["Greedy", "Queue", "Heap"]
+},
+{
+  "_id": "cod_int_queue_003",
+  "module": "coding",
+  "level": "intermediate",
+  "topic": "queue",
+  "title": "First Unique Character in a Stream",
+  "question": "Design a data structure that returns the first unique character in a stream of characters.",
+  "sample_tests": [
+    {
+      "input": "stream = [\"a\",\"b\",\"a\",\"c\",\"b\"]",
+      "output": "[a,a,b,c,c]"
+    }
+  ],
+  "constraints": [
+    "Number of operations <= 10^5"
+  ],
+  "tags": ["Queue", "Hash Table"]
+},
+{
+  "_id": "cod_int_queue_004",
+  "module": "coding",
+  "level": "intermediate",
+  "topic": "queue",
+  "title": "Dota2 Senate",
+  "question": "Given a string representing senators from two parties, predict which party will win based on banning rules.",
+  "sample_tests": [
+    {
+      "input": "senate = \"RD\"",
+      "output": "\"Radiant\""
+    },
+    {
+      "input": "senate = \"RDD\"",
+      "output": "\"Dire\""
+    }
+  ],
+  "constraints": [
+    "1 <= senate.length <= 10^4"
+  ],
+  "tags": ["Queue", "Greedy"]
+},
+{
+  "_id": "cod_int_tree_001",
+  "module": "coding",
+  "level": "intermediate",
+  "topic": "tree",
+  "title": "Binary Tree Right Side View",
+  "question": "Given the root of a binary tree, return the values visible from the right side.",
+  "sample_tests": [
+    {
+      "input": "root = [1,2,3,null,5,null,4]",
+      "output": "[1,3,4]"
+    },
+    {
+      "input": "root = [1,null,3]",
+      "output": "[1,3]"
+    }
+  ],
+  "constraints": [
+    "The number of nodes in the tree is in the range [0, 100]",
+    "-100 <= Node.val <= 100"
+  ],
+  "tags": ["Tree", "BFS", "DFS"]
+},
+{
+  "_id": "cod_int_tree_002",
+  "module": "coding",
+  "level": "intermediate",
+  "topic": "tree",
+  "title": "Path Sum II",
+  "question": "Given the root of a binary tree and a target sum, return all root-to-leaf paths where the sum equals target.",
+  "sample_tests": [
+    {
+      "input": "root = [5,4,8,11,null,13,4,7,2,null,null,5,1], targetSum = 22",
+      "output": "[[5,4,11,2],[5,8,4,5]]"
+    }
+  ],
+  "constraints": [
+    "The number of nodes in the tree is in the range [0, 5000]",
+    "-1000 <= Node.val <= 1000"
+  ],
+  "tags": ["Tree", "DFS", "Backtracking"]
+},
+{
+  "_id": "cod_int_tree_003",
+  "module": "coding",
+  "level": "intermediate",
+  "topic": "tree",
+  "title": "Construct Binary Tree from Preorder and Inorder",
+  "question": "Given preorder and inorder traversal arrays, construct and return the binary tree.",
+  "sample_tests": [
+    {
+      "input": "preorder = [3,9,20,15,7], inorder = [9,3,15,20,7]",
+      "output": "[3,9,20,null,null,15,7]"
+    }
+  ],
+  "constraints": [
+    "1 <= preorder.length <= 3000",
+    "preorder and inorder consist of unique values"
+  ],
+  "tags": ["Tree", "Recursion"]
+},
+{
+  "_id": "cod_int_tree_004",
+  "module": "coding",
+  "level": "intermediate",
+  "topic": "tree",
+  "title": "Validate Binary Search Tree",
+  "question": "Given the root of a binary tree, determine if it is a valid binary search tree.",
+  "sample_tests": [
+    {
+      "input": "root = [2,1,3]",
+      "output": "true"
+    },
+    {
+      "input": "root = [5,1,4,null,null,3,6]",
+      "output": "false"
+    }
+  ],
+  "constraints": [
+    "The number of nodes is in the range [1, 10^4]",
+    "-2^31 <= Node.val <= 2^31 - 1"
+  ],
+  "tags": ["Tree", "DFS"]
+},
+{
+  "_id": "cod_int_bs_001",
+  "module": "coding",
+  "level": "intermediate",
+  "topic": "binary_search",
+  "title": "Search in Rotated Sorted Array",
+  "question": "Given a rotated sorted array nums and a target value, return its index if found, otherwise return -1.",
+  "sample_tests": [
+    {
+      "input": "nums = [4,5,6,7,0,1,2], target = 0",
+      "output": "4"
+    },
+    {
+      "input": "nums = [4,5,6,7,0,1,2], target = 3",
+      "output": "-1"
+    }
+  ],
+  "constraints": [
+    "1 <= nums.length <= 5000",
+    "-10^4 <= nums[i] <= 10^4",
+    "All values are unique"
+  ],
+  "tags": ["Array", "Binary Search"]
+},
+{
+  "_id": "cod_int_bs_002",
+  "module": "coding",
+  "level": "intermediate",
+  "topic": "binary_search",
+  "title": "Find Minimum in Rotated Sorted Array",
+  "question": "Given a rotated sorted array, return the minimum element.",
+  "sample_tests": [
+    {
+      "input": "nums = [3,4,5,1,2]",
+      "output": "1"
+    },
+    {
+      "input": "nums = [4,5,6,7,0,1,2]",
+      "output": "0"
+    }
+  ],
+  "constraints": [
+    "1 <= nums.length <= 5000",
+    "All elements are unique"
+  ],
+  "tags": ["Array", "Binary Search"]
+},
+{
+  "_id": "cod_int_bs_003",
+  "module": "coding",
+  "level": "intermediate",
+  "topic": "binary_search",
+  "title": "Koko Eating Bananas",
+  "question": "Given piles of bananas and an integer h, find the minimum eating speed k such that all bananas are eaten within h hours.",
+  "sample_tests": [
+    {
+      "input": "piles = [3,6,7,11], h = 8",
+      "output": "4"
+    },
+    {
+      "input": "piles = [30,11,23,4,20], h = 5",
+      "output": "30"
+    }
+  ],
+  "constraints": [
+    "1 <= piles.length <= 10^4",
+    "1 <= piles[i] <= 10^9",
+    "piles.length <= h <= 10^9"
+  ],
+  "tags": ["Binary Search"]
+},
+{
+  "_id": "cod_int_bs_004",
+  "module": "coding",
+  "level": "intermediate",
+  "topic": "binary_search",
+  "title": "Median of Two Sorted Arrays",
+  "question": "Given two sorted arrays nums1 and nums2, return the median of the two sorted arrays in O(log(min(n,m))).",
+  "sample_tests": [
+    {
+      "input": "nums1 = [1,3], nums2 = [2]",
+      "output": "2.0"
+    },
+    {
+      "input": "nums1 = [1,2], nums2 = [3,4]",
+      "output": "2.5"
+    }
+  ],
+  "constraints": [
+    "0 <= nums1.length, nums2.length <= 1000",
+    "-10^6 <= nums1[i], nums2[i] <= 10^6"
+  ],
+  "tags": ["Binary Search", "Divide and Conquer"]
+},
+{
+  "_id": "cod_int_dp_001",
+  "module": "coding",
+  "level": "intermediate",
+  "topic": "dynamic_programming",
+  "title": "Longest Increasing Subsequence",
+  "question": "Given an integer array nums, return the length of the longest strictly increasing subsequence.",
+  "sample_tests": [
+    {
+      "input": "nums = [10,9,2,5,3,7,101,18]",
+      "output": "4"
+    },
+    {
+      "input": "nums = [0,1,0,3,2,3]",
+      "output": "4"
+    }
+  ],
+  "constraints": [
+    "1 <= nums.length <= 2500",
+    "-10^4 <= nums[i] <= 10^4"
+  ],
+  "tags": ["Dynamic Programming", "Binary Search"]
+},
+{
+  "_id": "cod_int_dp_002",
+  "module": "coding",
+  "level": "intermediate",
+  "topic": "dynamic_programming",
+  "title": "Coin Change",
+  "question": "Given an array of coin denominations and an amount, return the minimum number of coins needed to make that amount.",
+  "sample_tests": [
+    {
+      "input": "coins = [1,2,5], amount = 11",
+      "output": "3"
+    },
+    {
+      "input": "coins = [2], amount = 3",
+      "output": "-1"
+    }
+  ],
+  "constraints": [
+    "1 <= coins.length <= 12",
+    "1 <= coins[i] <= 2^31 - 1",
+    "0 <= amount <= 10^4"
+  ],
+  "tags": ["Dynamic Programming"]
+},
+{
+  "_id": "cod_int_dp_003",
+  "module": "coding",
+  "level": "intermediate",
+  "topic": "dynamic_programming",
+  "title": "House Robber II",
+  "question": "Given a circular array of houses, return the maximum amount you can rob without robbing adjacent houses.",
+  "sample_tests": [
+    {
+      "input": "nums = [2,3,2]",
+      "output": "3"
+    },
+    {
+      "input": "nums = [1,2,3,1]",
+      "output": "4"
+    }
+  ],
+  "constraints": [
+    "1 <= nums.length <= 100",
+    "0 <= nums[i] <= 1000"
+  ],
+  "tags": ["Dynamic Programming"]
+},
+{
+  "_id": "cod_int_dp_004",
+  "module": "coding",
+  "level": "intermediate",
+  "topic": "dynamic_programming",
+  "title": "Word Break",
+  "question": "Given a string s and a dictionary of words, determine if s can be segmented into a space-separated sequence of dictionary words.",
+  "sample_tests": [
+    {
+      "input": "s = \"leetcode\", wordDict = [\"leet\",\"code\"]",
+      "output": "true"
+    },
+    {
+      "input": "s = \"applepenapple\", wordDict = [\"apple\",\"pen\"]",
+      "output": "true"
+    }
+  ],
+  "constraints": [
+    "1 <= s.length <= 300",
+    "1 <= wordDict.length <= 1000"
+  ],
+  "tags": ["Dynamic Programming"]
+},
+{
+  "_id": "cod_adv_array_001",
+  "module": "coding",
+  "level": "advanced",
+  "topic": "array",
+  "title": "Trapping Rain Water",
+  "question": "Given n non-negative integers representing elevation map heights, compute how much water it can trap after raining.",
+  "sample_tests": [
+    {
+      "input": "height = [0,1,0,2,1,0,1,3,2,1,2,1]",
+      "output": "6"
+    },
+    {
+      "input": "height = [4,2,0,3,2,5]",
+      "output": "9"
+    }
+  ],
+  "constraints": [
+    "1 <= height.length <= 2 * 10^4",
+    "0 <= height[i] <= 10^5"
+  ],
+  "tags": ["Array", "Two Pointers", "Stack"]
+},
+{
+  "_id": "cod_adv_array_002",
+  "module": "coding",
+  "level": "advanced",
+  "topic": "array",
+  "title": "Maximum Product Subarray",
+  "question": "Given an integer array nums, find a contiguous subarray that has the largest product and return the product.",
+  "sample_tests": [
+    {
+      "input": "nums = [2,3,-2,4]",
+      "output": "6"
+    },
+    {
+      "input": "nums = [-2,0,-1]",
+      "output": "0"
+    }
+  ],
+  "constraints": [
+    "1 <= nums.length <= 2 * 10^4",
+    "-10 <= nums[i] <= 10"
+  ],
+  "tags": ["Array", "Dynamic Programming"]
+},
+{
+  "_id": "cod_adv_array_003",
+  "module": "coding",
+  "level": "advanced",
+  "topic": "array",
+  "title": "First Missing Positive",
+  "question": "Given an unsorted integer array nums, return the smallest missing positive integer.",
+  "sample_tests": [
+    {
+      "input": "nums = [1,2,0]",
+      "output": "3"
+    },
+    {
+      "input": "nums = [3,4,-1,1]",
+      "output": "2"
+    }
+  ],
+  "constraints": [
+    "1 <= nums.length <= 10^5",
+    "-2^31 <= nums[i] <= 2^31 - 1"
+  ],
+  "tags": ["Array"]
+},
+{
+  "_id": "cod_adv_array_004",
+  "module": "coding",
+  "level": "advanced",
+  "topic": "array",
+  "title": "Jump Game II",
+  "question": "Given an array nums where each element represents the maximum jump length, return the minimum number of jumps to reach the last index.",
+  "sample_tests": [
+    {
+      "input": "nums = [2,3,1,1,4]",
+      "output": "2"
+    },
+    {
+      "input": "nums = [2,3,0,1,4]",
+      "output": "2"
+    }
+  ],
+  "constraints": [
+    "1 <= nums.length <= 10^4",
+    "0 <= nums[i] <= 1000"
+  ],
+  "tags": ["Array", "Greedy"]
+},
+{
+  "_id": "cod_adv_string_001",
+  "module": "coding",
+  "level": "advanced",
+  "topic": "string",
+  "title": "Minimum Window Substring",
+  "question": "Given two strings s and t, return the minimum window in s which contains all characters of t.",
+  "sample_tests": [
+    {
+      "input": "s = \"ADOBECODEBANC\", t = \"ABC\"",
+      "output": "\"BANC\""
+    },
+    {
+      "input": "s = \"a\", t = \"a\"",
+      "output": "\"a\""
+    }
+  ],
+  "constraints": [
+    "1 <= s.length, t.length <= 10^5"
+  ],
+  "tags": ["String", "Sliding Window", "Hash Table"]
+},
+{
+  "_id": "cod_adv_string_002",
+  "module": "coding",
+  "level": "advanced",
+  "topic": "string",
+  "title": "Regular Expression Matching",
+  "question": "Implement regular expression matching with support for '.' and '*'.",
+  "sample_tests": [
+    {
+      "input": "s = \"aa\", p = \"a*\"",
+      "output": "true"
+    },
+    {
+      "input": "s = \"ab\", p = \".*\"",
+      "output": "true"
+    }
+  ],
+  "constraints": [
+    "1 <= s.length <= 20",
+    "1 <= p.length <= 30"
+  ],
+  "tags": ["String", "Dynamic Programming"]
+},
+{
+  "_id": "cod_adv_string_003",
+  "module": "coding",
+  "level": "advanced",
+  "topic": "string",
+  "title": "Edit Distance",
+  "question": "Given two strings word1 and word2, return the minimum number of operations required to convert word1 to word2.",
+  "sample_tests": [
+    {
+      "input": "word1 = \"horse\", word2 = \"ros\"",
+      "output": "3"
+    },
+    {
+      "input": "word1 = \"intention\", word2 = \"execution\"",
+      "output": "5"
+    }
+  ],
+  "constraints": [
+    "0 <= word1.length, word2.length <= 500"
+  ],
+  "tags": ["Dynamic Programming", "String"]
+},
+{
+  "_id": "cod_adv_string_004",
+  "module": "coding",
+  "level": "advanced",
+  "topic": "string",
+  "title": "Word Ladder",
+  "question": "Given beginWord, endWord and a dictionary, return the length of the shortest transformation sequence.",
+  "sample_tests": [
+    {
+      "input": "beginWord = \"hit\", endWord = \"cog\", wordList = [\"hot\",\"dot\",\"dog\",\"lot\",\"log\",\"cog\"]",
+      "output": "5"
+    }
+  ],
+  "constraints": [
+    "1 <= wordList.length <= 5000",
+    "All words have same length"
+  ],
+  "tags": ["BFS", "String"]
+},
+{
+  "_id": "cod_adv_hash_001",
+  "module": "coding",
+  "level": "advanced",
+  "topic": "hashing",
+  "title": "LRU Cache",
+  "question": "Design a data structure that follows the constraints of a Least Recently Used (LRU) cache with O(1) operations.",
+  "sample_tests": [
+    {
+      "input": "LRUCache cache = new LRUCache(2); put(1,1); put(2,2); get(1); put(3,3); get(2);",
+      "output": "[1,-1]"
+    }
+  ],
+  "constraints": [
+    "1 <= capacity <= 3000",
+    "At most 2 * 10^5 operations"
+  ],
+  "tags": ["Hash Table", "Linked List", "Design"]
+},
+{
+  "_id": "cod_adv_hash_002",
+  "module": "coding",
+  "level": "advanced",
+  "topic": "hashing",
+  "title": "Random Pick with Blacklist",
+  "question": "Pick a random integer from [0, n) excluding blacklisted values, minimizing calls to random().",
+  "sample_tests": [
+    {
+      "input": "n = 7, blacklist = [2,3,5]",
+      "output": "Random valid numbers excluding blacklist"
+    }
+  ],
+  "constraints": [
+    "1 <= n <= 10^9",
+    "0 <= blacklist.length < n"
+  ],
+  "tags": ["Hash Table", "Random"]
+},
+{
+  "_id": "cod_adv_hash_003",
+  "module": "coding",
+  "level": "advanced",
+  "topic": "hashing",
+  "title": "Design Twitter",
+  "question": "Design a simplified Twitter where users can post tweets, follow/unfollow others, and retrieve the 10 most recent tweets.",
+  "sample_tests": [
+    {
+      "input": "postTweet(1,5); getNewsFeed(1); follow(1,2); postTweet(2,6); getNewsFeed(1);",
+      "output": "[5],[6,5]"
+    }
+  ],
+  "constraints": [
+    "At most 3 * 10^4 calls will be made"
+  ],
+  "tags": ["Hash Table", "Heap", "Design"]
+},
+{
+  "_id": "cod_adv_hash_004",
+  "module": "coding",
+  "level": "advanced",
+  "topic": "hashing",
+  "title": "Insert Delete GetRandom O(1)",
+  "question": "Design a data structure that supports insert, delete, and getRandom in O(1) time.",
+  "sample_tests": [
+    {
+      "input": "insert(1); remove(2); insert(2); getRandom(); remove(1);",
+      "output": "[true,false,true,random,true]"
+    }
+  ],
+  "constraints": [
+    "-2^31 <= val <= 2^31 - 1",
+    "At most 2 * 10^5 operations"
+  ],
+  "tags": ["Hash Table", "Array", "Random"]
+},
+{
+  "_id": "cod_adv_bt_001",
+  "module": "coding",
+  "level": "advanced",
+  "topic": "backtracking",
+  "title": "N-Queens",
+  "question": "Place n queens on an n x n chessboard such that no two queens attack each other. Return all solutions.",
+  "sample_tests": [
+    {
+      "input": "n = 4",
+      "output": "[[\".Q..\",\"...Q\",\"Q...\",\"..Q.\"],[\"..Q.\",\"Q...\",\"...Q\",\".Q..\"]]"
+    }
+  ],
+  "constraints": [
+    "1 <= n <= 9"
+  ],
+  "tags": ["Backtracking"]
+},
+{
+  "_id": "cod_adv_bt_002",
+  "module": "coding",
+  "level": "advanced",
+  "topic": "backtracking",
+  "title": "Sudoku Solver",
+  "question": "Solve a Sudoku puzzle by filling empty cells while satisfying all constraints.",
+  "sample_tests": [
+    {
+      "input": "board = 9x9 grid with '.' as empty cells",
+      "output": "Solved Sudoku board"
+    }
+  ],
+  "constraints": [
+    "Board size is always 9x9"
+  ],
+  "tags": ["Backtracking"]
+},
+{
+  "_id": "cod_adv_bt_003",
+  "module": "coding",
+  "level": "advanced",
+  "topic": "backtracking",
+  "title": "Word Search II",
+  "question": "Given a board and a list of words, find all words present in the board.",
+  "sample_tests": [
+    {
+      "input": "board = [[\"o\",\"a\",\"a\",\"n\"],[\"e\",\"t\",\"a\",\"e\"],[\"i\",\"h\",\"k\",\"r\"],[\"i\",\"f\",\"l\",\"v\"]], words = [\"oath\",\"pea\",\"eat\",\"rain\"]",
+      "output": "[\"eat\",\"oath\"]"
+    }
+  ],
+  "constraints": [
+    "1 <= board.length, board[i].length <= 12",
+    "1 <= words.length <= 3 * 10^4"
+  ],
+  "tags": ["Backtracking", "Trie"]
+},
+{
+  "_id": "cod_adv_bt_004",
+  "module": "coding",
+  "level": "advanced",
+  "topic": "backtracking",
+  "title": "Palindrome Partitioning",
+  "question": "Partition a string such that every substring is a palindrome. Return all possible partitions.",
+  "sample_tests": [
+    {
+      "input": "s = \"aab\"",
+      "output": "[[\"a\",\"a\",\"b\"],[\"aa\",\"b\"]]"
+    }
+  ],
+  "constraints": [
+    "1 <= s.length <= 16"
+  ],
+  "tags": ["Backtracking", "String"]
+},
+{
+  "_id": "cod_adv_ll_001",
+  "module": "coding",
+  "level": "advanced",
+  "topic": "linked_list",
+  "title": "Reverse Nodes in k-Group",
+  "question": "Given a linked list, reverse the nodes in groups of k and return the modified list.",
+  "sample_tests": [
+    {
+      "input": "head = [1,2,3,4,5], k = 2",
+      "output": "[2,1,4,3,5]"
+    },
+    {
+      "input": "head = [1,2,3,4,5], k = 3",
+      "output": "[3,2,1,4,5]"
+    }
+  ],
+  "constraints": [
+    "1 <= k <= n <= 5000"
+  ],
+  "tags": ["Linked List"]
+},
+{
+  "_id": "cod_adv_ll_002",
+  "module": "coding",
+  "level": "advanced",
+  "topic": "linked_list",
+  "title": "Merge k Sorted Lists",
+  "question": "Merge k sorted linked lists and return one sorted linked list.",
+  "sample_tests": [
+    {
+      "input": "lists = [[1,4,5],[1,3,4],[2,6]]",
+      "output": "[1,1,2,3,4,4,5,6]"
+    }
+  ],
+  "constraints": [
+    "0 <= k <= 10^4",
+    "Total nodes <= 10^5"
+  ],
+  "tags": ["Linked List", "Heap"]
+},
+{
+  "_id": "cod_adv_ll_003",
+  "module": "coding",
+  "level": "advanced",
+  "topic": "linked_list",
+  "title": "Copy List with Random Pointer",
+  "question": "Create a deep copy of a linked list where each node has a next and a random pointer.",
+  "sample_tests": [
+    {
+      "input": "head = [[7,null],[13,0],[11,4],[10,2],[1,0]]",
+      "output": "Deep copied list"
+    }
+  ],
+  "constraints": [
+    "0 <= n <= 1000"
+  ],
+  "tags": ["Linked List", "Hash Table"]
+},
+{
+  "_id": "cod_adv_ll_004",
+  "module": "coding",
+  "level": "advanced",
+  "topic": "linked_list",
+  "title": "Flatten a Multilevel Doubly Linked List",
+  "question": "Flatten a multilevel doubly linked list so that all nodes appear in a single-level doubly linked list.",
+  "sample_tests": [
+    {
+      "input": "head = multilevel linked list",
+      "output": "Flattened list"
+    }
+  ],
+  "constraints": [
+    "Number of nodes <= 1000"
+  ],
+  "tags": ["Linked List", "DFS"]
+},
+{
+  "_id": "cod_adv_stack_001",
+  "module": "coding",
+  "level": "advanced",
+  "topic": "stack",
+  "title": "Largest Rectangle in Histogram",
+  "question": "Given an array of heights, find the largest rectangle area in the histogram.",
+  "sample_tests": [
+    {
+      "input": "heights = [2,1,5,6,2,3]",
+      "output": "10"
+    }
+  ],
+  "constraints": [
+    "1 <= heights.length <= 10^5",
+    "0 <= heights[i] <= 10^4"
+  ],
+  "tags": ["Stack", "Array"]
+},
+{
+  "_id": "cod_adv_stack_002",
+  "module": "coding",
+  "level": "advanced",
+  "topic": "stack",
+  "title": "Maximal Rectangle",
+  "question": "Given a binary matrix, find the largest rectangle containing only 1’s.",
+  "sample_tests": [
+    {
+      "input": "matrix = [[1,0,1,0,0],[1,0,1,1,1],[1,1,1,1,1],[1,0,0,1,0]]",
+      "output": "6"
+    }
+  ],
+  "constraints": [
+    "Rows, cols <= 200"
+  ],
+  "tags": ["Stack", "Matrix"]
+},
+{
+  "_id": "cod_adv_stack_003",
+  "module": "coding",
+  "level": "advanced",
+  "topic": "stack",
+  "title": "Basic Calculator",
+  "question": "Evaluate a simple expression string containing +, -, parentheses.",
+  "sample_tests": [
+    {
+      "input": "s = \"1 + 1\"",
+      "output": "2"
+    },
+    {
+      "input": "s = \"(1+(4+5+2)-3)+(6+8)\"",
+      "output": "23"
+    }
+  ],
+  "constraints": [
+    "1 <= s.length <= 3 * 10^5"
+  ],
+  "tags": ["Stack", "String"]
+},
+{
+  "_id": "cod_adv_stack_004",
+  "module": "coding",
+  "level": "advanced",
+  "topic": "stack",
+  "title": "Remove K Digits",
+  "question": "Remove k digits from a number string to make it the smallest possible.",
+  "sample_tests": [
+    {
+      "input": "num = \"1432219\", k = 3",
+      "output": "\"1219\""
+    }
+  ],
+  "constraints": [
+    "1 <= num.length <= 10^5"
+  ],
+  "tags": ["Stack", "Greedy"]
+},
+{
+  "_id": "cod_adv_graph_001",
+  "module": "coding",
+  "level": "advanced",
+  "topic": "graph",
+  "title": "Word Ladder",
+  "question": "Given two words beginWord and endWord, and a dictionary wordList, return the length of the shortest transformation sequence from beginWord to endWord.\n\nA transformation sequence is defined as:\n1. Only one letter can be changed at a time.\n2. Each transformed word must exist in the word list.\n\nReturn 0 if no such transformation sequence exists.",
+  "sample_tests": [
+    {
+      "input": "beginWord = \"hit\", endWord = \"cog\", wordList = [\"hot\",\"dot\",\"dog\",\"lot\",\"log\",\"cog\"]",
+      "output": "5"
+    },
+    {
+      "input": "beginWord = \"hit\", endWord = \"cog\", wordList = [\"hot\",\"dot\",\"dog\",\"lot\",\"log\"]",
+      "output": "0"
+    }
+  ],
+  "constraints": [
+    "1 <= beginWord.length <= 10",
+    "endWord.length == beginWord.length",
+    "1 <= wordList.length <= 5000"
+  ],
+  "tags": ["BFS", "Graph"]
+},
+{
+  "_id": "cod_adv_graph_002",
+  "module": "coding",
+  "level": "advanced",
+  "topic": "graph",
+  "title": "Course Schedule II",
+  "question": "There are a total of numCourses courses you have to take, labeled from 0 to numCourses-1.\n\nYou are given an array prerequisites where prerequisites[i] = [a, b] indicates that you must take course b before course a.\n\nReturn the ordering of courses you should take to finish all courses. If it is impossible, return an empty array.",
+  "sample_tests": [
+    {
+      "input": "numCourses = 2, prerequisites = [[1,0]]",
+      "output": "[0,1]"
+    },
+    {
+      "input": "numCourses = 4, prerequisites = [[1,0],[2,0],[3,1],[3,2]]",
+      "output": "[0,2,1,3]"
+    }
+  ],
+  "constraints": [
+    "1 <= numCourses <= 2000",
+    "0 <= prerequisites.length <= 5000"
+  ],
+  "tags": ["Graph", "Topological Sort", "DFS", "BFS"]
+},
+{
+  "_id": "cod_adv_graph_003",
+  "module": "coding",
+  "level": "advanced",
+  "topic": "graph",
+  "title": "Number of Islands",
+  "question": "Given a 2D grid of '1's (land) and '0's (water), count the number of islands.\n\nAn island is surrounded by water and is formed by connecting adjacent lands horizontally or vertically.",
+  "sample_tests": [
+    {
+      "input": "grid = [[\"1\",\"1\",\"1\",\"1\",\"0\"],[\"1\",\"1\",\"0\",\"1\",\"0\"],[\"1\",\"1\",\"0\",\"0\",\"0\"],[\"0\",\"0\",\"0\",\"0\",\"0\"]]",
+      "output": "1"
+    },
+    {
+      "input": "grid = [[\"1\",\"1\",\"0\",\"0\",\"0\"],[\"1\",\"1\",\"0\",\"0\",\"0\"],[\"0\",\"0\",\"1\",\"0\",\"0\"],[\"0\",\"0\",\"0\",\"1\",\"1\"]]",
+      "output": "3"
+    }
+  ],
+  "constraints": [
+    "1 <= m, n <= 300"
+  ],
+  "tags": ["DFS", "BFS", "Graph"]
+},
+{
+  "_id": "cod_adv_graph_004",
+  "module": "coding",
+  "level": "advanced",
+  "topic": "graph",
+  "title": "Alien Dictionary",
+  "question": "There is a new alien language which uses the English alphabet. However, the order of the letters is unknown.\n\nYou are given a list of strings words from the alien language’s dictionary, where the strings are sorted lexicographically by the rules of this new language.\n\nReturn a string representing the correct order of letters in the alien language. If there is no valid order, return an empty string.",
+  "sample_tests": [
+    {
+      "input": "words = [\"wrt\",\"wrf\",\"er\",\"ett\",\"rftt\"]",
+      "output": "\"wertf\""
+    }
+  ],
+  "constraints": [
+    "1 <= words.length <= 100",
+    "1 <= words[i].length <= 100"
+  ],
+  "tags": ["Graph", "Topological Sort"]
+},
+{
+  "_id": "cod_adv_tree_001",
+  "module": "coding",
+  "level": "advanced",
+  "topic": "tree",
+  "title": "Serialize and Deserialize Binary Tree",
+  "question": "Design an algorithm to serialize a binary tree to a string and deserialize it back to the same tree structure.\n\nSerialization is the process of converting a tree into a string representation, and deserialization reconstructs the tree from the string.",
+  "sample_tests": [
+    {
+      "input": "root = [1,2,3,null,null,4,5]",
+      "output": "Serialized string and reconstructed tree"
+    }
+  ],
+  "constraints": [
+    "Number of nodes <= 10^4"
+  ],
+  "tags": ["Tree", "DFS", "Design"]
+},
+{
+  "_id": "cod_adv_tree_002",
+  "module": "coding",
+  "level": "advanced",
+  "topic": "tree",
+  "title": "Binary Tree Maximum Path Sum",
+  "question": "Given a non-empty binary tree, find the maximum path sum.\n\nA path is any sequence of nodes where each pair of adjacent nodes has an edge connecting them. A node can appear only once in the sequence.\n\nThe path does not need to pass through the root.",
+  "sample_tests": [
+    {
+      "input": "root = [1,2,3]",
+      "output": "6"
+    },
+    {
+      "input": "root = [-10,9,20,null,null,15,7]",
+      "output": "42"
+    }
+  ],
+  "constraints": [
+    "Number of nodes in the tree <= 3 * 10^4",
+    "-1000 <= Node.val <= 1000"
+  ],
+  "tags": ["Tree", "DFS"]
+},
+{
+  "_id": "cod_adv_tree_003",
+  "module": "coding",
+  "level": "advanced",
+  "topic": "tree",
+  "title": "Lowest Common Ancestor of Binary Tree",
+  "question": "Given a binary tree, find the lowest common ancestor (LCA) of two given nodes.\n\nThe LCA is defined as the lowest node in the tree that has both nodes as descendants.",
+  "sample_tests": [
+    {
+      "input": "root = [3,5,1,6,2,0,8,null,null,7,4], p = 5, q = 1",
+      "output": "3"
+    }
+  ],
+  "constraints": [
+    "Number of nodes <= 10^5"
+  ],
+  "tags": ["Tree", "DFS"]
+},
+{
+  "_id": "cod_adv_tree_004",
+  "module": "coding",
+  "level": "advanced",
+  "topic": "tree",
+  "title": "Validate Binary Search Tree",
+  "question": "Given the root of a binary tree, determine if it is a valid Binary Search Tree (BST).\n\nA valid BST satisfies:\n1. Left subtree contains only nodes less than the node’s value.\n2. Right subtree contains only nodes greater than the node’s value.\n3. Both subtrees must also be BSTs.",
+  "sample_tests": [
+    {
+      "input": "root = [2,1,3]",
+      "output": "true"
+    },
+    {
+      "input": "root = [5,1,4,null,null,3,6]",
+      "output": "false"
+    }
+  ],
+  "constraints": [
+    "Number of nodes <= 10^4"
+  ],
+  "tags": ["Tree", "DFS"]
+},
+{
+  "_id": "cod_adv_dp_001",
+  "module": "coding",
+  "level": "advanced",
+  "topic": "dynamic_programming",
+  "title": "Longest Increasing Subsequence",
+  "question": "Given an integer array nums, return the length of the longest strictly increasing subsequence.\n\nA subsequence is a sequence derived from an array by deleting some or no elements without changing the order of the remaining elements.",
+  "sample_tests": [
+    {
+      "input": "nums = [10,9,2,5,3,7,101,18]",
+      "output": "4"
+    },
+    {
+      "input": "nums = [0,1,0,3,2,3]",
+      "output": "4"
+    }
+  ],
+  "constraints": [
+    "1 <= nums.length <= 2500",
+    "-10^4 <= nums[i] <= 10^4"
+  ],
+  "tags": ["Dynamic Programming", "Binary Search"]
+},
+{
+  "_id": "cod_adv_dp_002",
+  "module": "coding",
+  "level": "advanced",
+  "topic": "dynamic_programming",
+  "title": "0/1 Knapsack",
+  "question": "Given weights and values of n items, put these items in a knapsack of capacity W to get the maximum total value in the knapsack.\n\nEach item can be included or excluded (0/1).",
+  "sample_tests": [
+    {
+      "input": "weights = [1,3,4,5], values = [1,4,5,7], W = 7",
+      "output": "9"
+    }
+  ],
+  "constraints": [
+    "1 <= n <= 1000",
+    "1 <= W <= 10^5"
+  ],
+  "tags": ["Dynamic Programming"]
+},
+{
+  "_id": "cod_adv_dp_003",
+  "module": "coding",
+  "level": "advanced",
+  "topic": "dynamic_programming",
+  "title": "Longest Common Subsequence",
+  "question": "Given two strings text1 and text2, return the length of their longest common subsequence.\n\nA subsequence is a sequence that appears in the same relative order but not necessarily contiguous.",
+  "sample_tests": [
+    {
+      "input": "text1 = \"abcde\", text2 = \"ace\"",
+      "output": "3"
+    },
+    {
+      "input": "text1 = \"abc\", text2 = \"abc\"",
+      "output": "3"
+    }
+  ],
+  "constraints": [
+    "1 <= text1.length, text2.length <= 1000"
+  ],
+  "tags": ["Dynamic Programming", "String"]
+},
+{
+  "_id": "cod_adv_dp_004",
+  "module": "coding",
+  "level": "advanced",
+  "topic": "dynamic_programming",
+  "title": "Edit Distance",
+  "question": "Given two strings word1 and word2, return the minimum number of operations required to convert word1 to word2.\n\nYou can perform the following operations:\n1. Insert a character\n2. Delete a character\n3. Replace a character",
+  "sample_tests": [
+    {
+      "input": "word1 = \"horse\", word2 = \"ros\"",
+      "output": "3"
+    },
+    {
+      "input": "word1 = \"intention\", word2 = \"execution\"",
+      "output": "5"
+    }
+  ],
+  "constraints": [
+    "0 <= word1.length, word2.length <= 500"
+  ],
+  "tags": ["Dynamic Programming", "String"]
+},
+{
+  "_id": "cod_adv_dp_005",
+  "module": "coding",
+  "level": "advanced",
+  "topic": "dynamic_programming",
+  "title": "Coin Change",
+  "question": "You are given an integer array coins representing different denominations and an integer amount.\n\nReturn the fewest number of coins needed to make up that amount. If it is not possible, return -1.",
+  "sample_tests": [
+    {
+      "input": "coins = [1,2,5], amount = 11",
+      "output": "3"
+    },
+    {
+      "input": "coins = [2], amount = 3",
+      "output": "-1"
+    }
+  ],
+  "constraints": [
+    "1 <= coins.length <= 12",
+    "0 <= amount <= 10^4"
+  ],
+  "tags": ["Dynamic Programming"]
+},
+{
+  "_id": "cod_adv_dp_006",
+  "module": "coding",
+  "level": "advanced",
+  "topic": "dynamic_programming",
+  "title": "Partition Equal Subset Sum",
+  "question": "Given an integer array nums, return true if you can partition the array into two subsets such that the sum of elements in both subsets is equal.",
+  "sample_tests": [
+    {
+      "input": "nums = [1,5,11,5]",
+      "output": "true"
+    },
+    {
+      "input": "nums = [1,2,3,5]",
+      "output": "false"
+    }
+  ],
+  "constraints": [
+    "1 <= nums.length <= 200",
+    "1 <= nums[i] <= 100"
+  ],
+  "tags": ["Dynamic Programming"]
+},
+{
+  "_id": "cod_adv_dp_007",
+  "module": "coding",
+  "level": "advanced",
+  "topic": "dynamic_programming",
+  "title": "Burst Balloons",
+  "question": "You are given n balloons, indexed from 0 to n-1. Each balloon has a number on it.\n\nIf you burst balloon i, you gain nums[i-1] * nums[i] * nums[i+1] coins.\n\nReturn the maximum coins you can collect by bursting the balloons wisely.",
+  "sample_tests": [
+    {
+      "input": "nums = [3,1,5,8]",
+      "output": "167"
+    }
+  ],
+  "constraints": [
+    "1 <= nums.length <= 300",
+    "0 <= nums[i] <= 100"
+  ],
+  "tags": ["Dynamic Programming"]
+},
+{
+  "_id": "cod_adv_dp_008",
+  "module": "coding",
+  "level": "advanced",
+  "topic": "dynamic_programming",
+  "title": "Word Break",
+  "question": "Given a string s and a dictionary of words wordDict, return true if s can be segmented into a space-separated sequence of one or more dictionary words.",
+  "sample_tests": [
+    {
+      "input": "s = \"leetcode\", wordDict = [\"leet\",\"code\"]",
+      "output": "true"
+    },
+    {
+      "input": "s = \"catsandog\", wordDict = [\"cats\",\"dog\",\"sand\",\"and\",\"cat\"]",
+      "output": "false"
+    }
+  ],
+  "constraints": [
+    "1 <= s.length <= 300",
+    "1 <= wordDict.length <= 1000"
+  ],
+  "tags": ["Dynamic Programming", "String"]
+}
+]

@@ -66,7 +66,7 @@ export default function CoreCS() {
   // Complete Session
   const handleComplete = async () => {
     await completeSession(sessionId);
-    alert("CoreCS Completed!");
+    
     navigate(`/coding/${sessionId}`)
   };
 

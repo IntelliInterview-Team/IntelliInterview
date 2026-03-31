@@ -1,6 +1,7 @@
 from app.database import questions_collection
 from app.database import verbal_collection
-from app.database import corecs_collection  
+from app.database import corecs_collection 
+from app.database import coding_collection 
 import random
 
 
@@ -88,3 +89,39 @@ def fetch_corecs_questions(level):
     random.shuffle(selected_questions)
 
     return selected_questions
+
+def fetch_coding_questions(level, limit=2):
+    
+    questions = list(
+        coding_collection.find({
+            "level": level
+        })
+    )
+
+    if len(questions) < limit:
+        raise Exception("Not enough coding questions")
+
+    random.shuffle(questions)
+
+    selected = []
+    used_topics = set()
+
+    for q in questions:
+        if q["topic"] not in used_topics:
+            selected.append(q)
+            used_topics.add(q["topic"])
+
+        if len(selected) == limit:
+            break
+
+    if len(selected) < limit:
+        remaining = [q for q in questions if q not in selected]
+        selected.extend(remaining[:limit - len(selected)])
+
+    # 🔥🔥🔥 MOST IMPORTANT FIX
+    for q in selected:
+        q["_id"] = str(q["_id"])   # ✅ convert ObjectId
+        q["constraints"] = q.get("constraints", [])
+        q["sample_tests"] = q.get("sample_tests", [])
+
+    return selected

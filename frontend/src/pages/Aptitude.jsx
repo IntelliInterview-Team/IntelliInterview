@@ -66,7 +66,7 @@ export default function Aptitude() {
   // Complete Session
   const handleComplete = async () => {
     await completeSession(sessionId);
-    alert("Aptitude Completed!");
+    
     navigate(`/verbal/${sessionId}`)
   };
 
