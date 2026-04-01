@@ -1,0 +1,92 @@
+[
+  {
+    "_id": "1",
+    "module": "speech",
+    "level": "beginner",
+    "question": "Tell me about yourself."
+  },
+  {
+    "_id": "2",
+    "module": "speech",
+    "level": "beginner",
+    "question": "Why do you want to join our company?"
+  },
+  {
+    "_id": "3",
+    "module": "speech",
+    "level": "beginner",
+    "question": "What are your strengths and weaknesses?"
+  },
+  {
+    "_id": "4",
+    "module": "speech",
+    "level": "beginner",
+    "question": "Describe a situation where you had to work in a team."
+  },
+  {
+    "_id": "5",
+    "module": "speech",
+    "level": "beginner",
+    "question": "How do you handle stress or pressure?"
+  },
+  {
+    "_id": "6",
+    "module": "speech",
+    "level": "intermediate",
+    "question": "Tell me about a time when you faced a conflict in a team. How did you handle it?"
+  },
+  {
+    "_id": "7",
+    "module": "speech",
+    "level": "intermediate",
+    "question": "Describe a situation where you had to meet a tight deadline."
+  },
+  {
+    "_id": "8",
+    "module": "speech",
+    "level": "intermediate",
+    "question": "Give an example of a time you showed leadership."
+  },
+  {
+    "_id": "9",
+    "module": "speech",
+    "level": "intermediate",
+    "question": "Tell me about a mistake you made and how you handled it."
+  },
+  {
+    "_id": "10",
+    "module": "speech",
+    "level": "intermediate",
+    "question": "Describe a situation where you had to learn something quickly."
+  },
+  {
+    "_id": "11",
+    "module": "speech",
+    "level": "advanced",
+    "question": "Tell me about a time you failed. What did you learn from it?"
+  },
+  {
+    "_id": "12",
+    "module": "speech",
+    "level": "advanced",
+    "question": "Describe a situation where you had to take a difficult decision with limited information."
+  },
+  {
+    "_id": "13",
+    "module": "speech",
+    "level": "advanced",
+    "question": "How would you handle a situation where your manager disagrees with your idea?"
+  },
+  {
+    "_id": "14",
+    "module": "speech",
+    "level": "advanced",
+    "question": "Tell me about a time you went above and beyond your responsibilities."
+  },
+  {
+    "_id": "15",
+    "module": "speech",
+    "level": "advanced",
+    "question": "Describe a challenging situation where you had to adapt quickly to change."
+  }
+]

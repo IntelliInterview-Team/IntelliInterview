@@ -1,208 +1,225 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
+import { PieChart, Pie, Cell, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip } from "recharts";
 
-const Result = () => {
+const COLORS = ["#2ecc71", "#e74c3c"];
+
+export default function ResultDashboard() {
   const { sessionId } = useParams();
-
+  const navigate = useNavigate();
   const [data, setData] = useState(null);
-  const [selected, setSelected] = useState(0);
 
   useEffect(() => {
     fetch(`http://localhost:8000/session/${sessionId}/result`)
       .then((res) => res.json())
-      .then((res) => {
-        console.log("RESULT:", res);
-        setData(res);
-      })
-      .catch((err) => console.error(err));
+      .then(setData);
   }, [sessionId]);
 
-  if (!data) return <h2 style={{ color: "white" }}>Loading...</h2>;
+  if (!data) return <div className="text-white p-6">Loading...</div>;
 
-  // ✅ FROM BACKEND (IMPORTANT FIX)
-  const speechQuestions = data.speech_questions || [];
-  const speechData = data.speech || [];
+  const calcStats = (section) => {
+    let total = 0, correct = 0;
+    Object.values(section || {}).forEach((val) => {
+      total++;
+      if (val.correct) correct++;
+    });
+    return { total, correct, wrong: total - correct };
+  };
+
+  const verbalStats = calcStats(data.verbal);
+  const corecsStats = calcStats(data.corecs);
+  const aptitudeStats = calcStats(data.aptitude);
+
+  const codingStats = {
+    total: Object.keys(data.coding || {}).length,
+    passed: Object.values(data.coding || {}).filter(v => v.result?.passed).length
+  };
+
+  const totalQuestions = verbalStats.total + corecsStats.total + aptitudeStats.total + codingStats.total;
+  const totalCorrect = verbalStats.correct + corecsStats.correct + aptitudeStats.correct + codingStats.passed;
+
+  const percentage = totalQuestions ? Math.round((totalCorrect / totalQuestions) * 100) : 0;
+
+  const renderPie = (label, correct, total) => {
+    const value = total ? Math.round((correct / total) * 100) : 0;
+
+    return (
+      <div style={styles.pieCard}>
+        <PieChart width={120} height={120}>
+          <Pie
+            data={[
+              { name: "Score", value: value },
+              { name: "Remaining", value: 100 - value }
+            ]}
+            dataKey="value"
+            outerRadius={45}
+          >
+            {COLORS.map((c, i) => (
+              <Cell key={i} fill={c} />
+            ))}
+          </Pie>
+        </PieChart>
+        <p>{label}</p>
+        <small>{correct}/{total}</small>
+      </div>
+    );
+  };
+
+  const barData = [
+    { name: "Verbal", score: verbalStats.correct },
+    { name: "CoreCS", score: corecsStats.correct },
+    { name: "Aptitude", score: aptitudeStats.correct },
+    { name: "Coding", score: codingStats.passed }
+  ];
+
+  const renderSection = (title, sectionData, showSelected = false) => (
+    <div style={styles.sectionCard}>
+      <h2 style={styles.sectionTitle}>{title}</h2>
+      {Object.entries(sectionData || {}).map(([q, val], i) => (
+        <div key={i} style={styles.qCard}>
+          <p><b>Q:</b> {q}</p>
+          {showSelected && <p><b>Selected:</b> {val.selected}</p>}
+          <p style={{ color: val.correct ? "#2ecc71" : "#e74c3c", fontWeight: "bold" }}>
+            {val.correct ? "✔ Correct" : "✘ Wrong"}
+          </p>
+        </div>
+      ))}
+    </div>
+  );
 
   return (
     <div style={styles.container}>
-      <h1 style={styles.title}>📊 Interview Results</h1>
 
-      {/* ================= SPEECH ================= */}
-      <div style={styles.main}>
-        <div style={styles.left}>
-          <h3>🎤 Questions</h3>
+      {/* HEADER */}
+      <div style={styles.header}>
+        <h2>🚀 IntelliInterview</h2>
+        <button onClick={() => navigate("/")} style={styles.homeBtn}>
+          ⬅ Back to Home
+        </button>
+      </div>
 
-          {speechQuestions.length > 0 ? (
-            speechQuestions.map((_, i) => (
-              <div
-                key={i}
-                style={{
-                  ...styles.qBox,
-                  background: selected === i ? "#f39c12" : "#222",
-                }}
-                onClick={() => setSelected(i)}
-              >
-                Q{i + 1}
-              </div>
-            ))
-          ) : (
-            <p>No questions</p>
-          )}
-        </div>
-
-        <div style={styles.right}>
-          <h2>
-            {speechQuestions[selected]?.question || "No question"}
-          </h2>
-
-          <div style={styles.card}>
-            <h3>📝 Your Answer</h3>
-            <p>
-              {speechData[selected]?.transcript ||
-                "No answer recorded"}
-            </p>
-          </div>
-
-          <div style={styles.card}>
-            <h3>🤖 AI Feedback</h3>
-            <p>
-              {speechData[selected]?.feedback ||
-                "No feedback available"}
-            </p>
-          </div>
+      {/* PIE ROW */}
+      <div style={styles.card}>
+        <h2>📊 Overall Summary</h2>
+        <div style={styles.pieRow}>
+          {renderPie("Aptitude", aptitudeStats.correct, aptitudeStats.total)}
+          {renderPie("Verbal", verbalStats.correct, verbalStats.total)}
+          {renderPie("Core CS", corecsStats.correct, corecsStats.total)}
+          {renderPie("Coding", codingStats.passed, codingStats.total)}
         </div>
       </div>
 
-      {/* ================= CODING ================= */}
-      <h2 style={styles.heading}>💻 Coding Results</h2>
+      {/* BAR CHART */}
+      <div style={styles.card}>
+        <h2>📈 Performance Comparison</h2>
+        <BarChart width={500} height={250} data={barData}>
+          <CartesianGrid strokeDasharray="3 3" />
+          <XAxis dataKey="name" />
+          <YAxis />
+          <Tooltip />
+          <Bar dataKey="score" />
+        </BarChart>
+      </div>
 
-      <div style={styles.grid}>
-        {data.coding &&
-          Object.entries(data.coding).map(([key, val], index) => (
-            <div key={index} style={styles.card}>
-              <h4>{key}</h4>
-              <p>Passed: {val?.result?.passed ? "✅ Yes" : "❌ No"}</p>
+      {/* SPEECH */}
+      <div style={styles.card}>
+        <h2>🎤 Speech Analysis</h2>
+        {data.speech?.length > 0 ? (
+          data.speech.map((s, i) => (
+            <div key={i} style={styles.qCard}>
+              <p><b>Answer:</b> {s.transcript}</p>
+              <p><b>Feedback:</b> {JSON.stringify(s.feedback)}</p>
             </div>
-          ))}
+          ))
+        ) : (
+          <p>No speech answers</p>
+        )}
       </div>
 
-      {/* ================= VERBAL ================= */}
-      <h2 style={styles.heading}>🗣 Verbal Round</h2>
+      {/* SEPARATED SECTIONS */}
+      {renderSection("📘 Aptitude", data.aptitude, true)}
+      {renderSection("🗣 Verbal", data.verbal)}
+      {renderSection("💻 Core CS", data.corecs)}
 
-      {data.verbal && Object.keys(data.verbal).length > 0 ? (
-        Object.entries(data.verbal).map(([q, val], index) => (
-          <div key={index} style={styles.card}>
-            <p><strong>Q:</strong> {q}</p>
-            <p>
-              <strong>Correct:</strong>{" "}
-              {val.correct ? "✅ Yes" : "❌ No"}
-            </p>
+      {/* CODING */}
+      <div style={styles.sectionCard}>
+        <h2 style={styles.sectionTitle}>👨‍💻 Coding</h2>
+        {Object.entries(data.coding || {}).map(([q, val], i) => (
+          <div key={i} style={styles.qCard}>
+            <p><b>Question:</b> {q}</p>
+            <p>Passed: {val.result?.passed}</p>
+            <p>Total: {val.result?.total}</p>
           </div>
-        ))
-      ) : (
-        <p style={styles.empty}>No verbal answers</p>
-      )}
+        ))}
+      </div>
 
-      {/* ================= CORE CS ================= */}
-      <h2 style={styles.heading}>🧠 CoreCS Round</h2>
+      {/* OVERALL */}
+      <div style={styles.cardCenter}>
+        <h2>🏆 Overall Performance</h2>
+        <h3 style={{ color: "#2ecc71" }}>Score: {percentage}%</h3>
+      </div>
 
-      {data.corecs && Object.keys(data.corecs).length > 0 ? (
-        Object.entries(data.corecs).map(([q, val], index) => (
-          <div key={index} style={styles.card}>
-            <p><strong>Q:</strong> {q}</p>
-            <p>
-              <strong>Correct:</strong>{" "}
-              {val.correct ? "✅ Yes" : "❌ No"}
-            </p>
-          </div>
-        ))
-      ) : (
-        <p style={styles.empty}>No CoreCS answers</p>
-      )}
-
-      {/* ================= APTITUDE ================= */}
-      <h2 style={styles.heading}>📊 Aptitude Round</h2>
-
-      {data.aptitude && Object.keys(data.aptitude).length > 0 ? (
-        Object.entries(data.aptitude).map(([q, val], index) => (
-          <div key={index} style={styles.card}>
-            <p><strong>Q:</strong> {q}</p>
-            <p>
-              <strong>Selected:</strong> {val}
-            </p>
-          </div>
-        ))
-      ) : (
-        <p style={styles.empty}>No aptitude answers</p>
-      )}
     </div>
   );
-};
+}
 
-export default Result;
-
-
-// ================= STYLES =================
 const styles = {
   container: {
     background: "linear-gradient(135deg, #2b5876, #4e4376)",
     minHeight: "100vh",
     padding: "20px",
-    color: "white",
   },
-
-  title: {
-    textAlign: "center",
-    marginBottom: "20px",
-  },
-
-  main: {
+  header: {
     display: "flex",
-    gap: "20px",
-  },
-
-  left: {
-    width: "20%",
-    background: "#111",
-    padding: "10px",
-    borderRadius: "10px",
-  },
-
-  qBox: {
-    padding: "12px",
-    margin: "10px 0",
-    textAlign: "center",
-    borderRadius: "8px",
-    cursor: "pointer",
+    justifyContent: "space-between",
     color: "white",
   },
-
-  right: {
-    width: "80%",
-    background: "#1c1c1c",
-    padding: "20px",
-    borderRadius: "10px",
+  homeBtn: {
+    background: "white",
+    padding: "8px 12px",
+    borderRadius: "6px",
+    cursor: "pointer",
   },
-
   card: {
     background: "white",
-    color: "black",
-    padding: "15px",
-    marginTop: "15px",
-    borderRadius: "10px",
+    marginTop: "20px",
+    padding: "20px",
+    borderRadius: "12px",
+    boxShadow: "0 4px 10px rgba(0,0,0,0.2)"
   },
-
-  grid: {
+  cardCenter: {
+    background: "white",
+    marginTop: "20px",
+    padding: "20px",
+    borderRadius: "12px",
+    textAlign: "center",
+    boxShadow: "0 4px 10px rgba(0,0,0,0.2)"
+  },
+  pieRow: {
     display: "flex",
-    gap: "20px",
-    flexWrap: "wrap",
+    justifyContent: "space-around",
+    flexWrap: "wrap"
   },
-
-  heading: {
-    marginTop: "30px",
+  pieCard: {
+    textAlign: "center",
+    margin: "10px"
   },
-
-  empty: {
-    color: "#ccc",
+  sectionCard: {
+    background: "white",
+    marginTop: "20px",
+    padding: "20px",
+    borderRadius: "12px",
+    boxShadow: "0 4px 10px rgba(0,0,0,0.2)"
   },
+  sectionTitle: {
+    marginBottom: "10px",
+    color: "#333"
+  },
+  qCard: {
+    background: "#f9f9f9",
+    padding: "12px",
+    marginTop: "10px",
+    borderRadius: "8px",
+    borderLeft: "5px solid #4e73df"
+  }
 };

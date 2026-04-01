@@ -248,6 +248,45 @@ export const getSpeechQuestions = async (sessionId) => {
 };
 
 // ==========================
+// SUBMIT SPEECH ANSWER ✅ (NEW)
+// ==========================
+export const submitSpeechAnswer = async (
+  sessionId,
+  questionId,
+  audioBlob
+) => {
+  try {
+    const formData = new FormData();
+    formData.append("file", audioBlob);
+    formData.append("question_id", questionId);
+
+    const res = await fetch(
+      `${BASE_URL}/session/${sessionId}/speech/answer`,
+      {
+        method: "POST",
+        body: formData,
+      }
+    );
+
+    if (!res.ok) throw new Error("Speech submission failed");
+
+    return await res.json();
+  } catch (err) {
+    console.error("SPEECH SUBMIT ERROR:", err);
+
+    return {
+      transcription: "",
+      confidence: 0,
+      evaluation: {
+        score: 0,
+        feedback: "Error processing speech",
+        tip: "Try again",
+      },
+    };
+  }
+};
+
+// ==========================
 // COMPLETE SESSION
 // ==========================
 export const completeSession = async (session_id) => {

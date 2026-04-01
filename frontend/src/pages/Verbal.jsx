@@ -66,8 +66,8 @@ export default function Verbal() {
   // Complete Session
   const handleComplete = async () => {
     await completeSession(sessionId);
-    alert("Verbal Completed!");
-    navigate(`/corecs/${sessionId}`);
+    
+    navigate(`/CoreCS/${sessionId}`);
   };
 
   if (loading)

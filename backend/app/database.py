@@ -23,5 +23,8 @@ print("corecs collection is running")
 coding_collection = db.get_collection("coding")
 print("coding collection is running")
 
+speech_collection = db["speech"]
+print("speech collection is running")
+
 sessions_collection = db.get_collection("sessions")
 print("DATABASE FILE IS RUNNING")

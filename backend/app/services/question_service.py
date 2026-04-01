@@ -2,6 +2,7 @@ from app.database import questions_collection
 from app.database import verbal_collection
 from app.database import corecs_collection 
 from app.database import coding_collection 
+from app.database import speech_collection
 import random
 
 
@@ -125,20 +126,25 @@ def fetch_coding_questions(level, limit=2):
         q["sample_tests"] = q.get("sample_tests", [])
 
     return selected
+
+
+
 def fetch_speech_questions(level, limit=5):
 
     questions = list(
-        verbal_collection.find(
+        speech_collection.find(
             {
                 "level": level,
                 "module": "speech"
             }
-        )
+        ).sort("_id", 1)   # ✅ ascending order
     )
 
     if len(questions) < limit:
         raise Exception("Not enough speech questions")
 
-    random.shuffle(questions)
+    # convert _id
+    for q in questions:
+        q["_id"] = str(q["_id"])
 
     return questions[:limit]
